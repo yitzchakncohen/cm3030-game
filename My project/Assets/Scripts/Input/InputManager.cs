@@ -6,8 +6,7 @@ using static PlayerActions;
 public class InputManager : MonoBehaviour, ICharacterControllerActions
 {
     public event Action<Vector2> OnMoveInput;
-    public event Action<float> OnLookHorizontalInput;
-    public event Action<float> OnLookVerticalInput;
+    public event Action<Vector2> OnLookInput;
     public event Action OnJumpInput;
     public event Action OnCrouchInput;
 
@@ -39,8 +38,7 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     public void OnLook(InputAction.CallbackContext context)
     {
         Vector2 look = context.ReadValue<Vector2>();
-        OnLookHorizontalInput?.Invoke(look.x);
-        OnLookVerticalInput?.Invoke(look.y);
+        OnLookInput?.Invoke(look);
     }
 
     public void OnJump(InputAction.CallbackContext context)
