@@ -6,12 +6,17 @@ public class CharacterController : MonoBehaviour
     private InputManager inputManager;
     private Rigidbody rigidBody;
     [SerializeField] private Transform cameraHolder;
-    [SerializeField] private float speed;
+    [SerializeField] private Transform feet;
+    [SerializeField] private float feetRadius = 0.1f;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float cameraHorizontalSensitivity = 10f;
     [SerializeField] private float cameraVerticalSensitivity = 10f;
     [SerializeField] private Vector2 verticalLookClamp;
-    private Vector3 moveVelocity;
+    [SerializeField] private LayerMask groundLayer;
+    private Vector2 moveInput;
     private Vector2 lookVector;
+    private bool isGrounded = false;
 
     private void Awake()
     {
@@ -43,6 +48,7 @@ public class CharacterController : MonoBehaviour
     private void Update()
     {
         Look();
+        CheckIsGround();
     }
 
     /* --- Code modified from my previous implementation --- */
@@ -77,13 +83,21 @@ public class CharacterController : MonoBehaviour
 
     private void Move()
     {
-        rigidBody.linearVelocity = moveVelocity;
+        Vector3 moveVector = moveInput.x * cameraHolder.right + moveInput.y * cameraHolder.forward;
+        moveVector = Vector3.ProjectOnPlane(moveVector, Vector3.up);
+        Vector3 moveVelocity = moveVector.normalized * speed;
+        Vector3 moveForce = moveVelocity - new Vector3(rigidBody.linearVelocity.x, 0f, rigidBody.linearVelocity.z);
+        rigidBody.AddForce(moveForce, ForceMode.VelocityChange);
+    }
+
+    private void CheckIsGround()
+    {
+        isGrounded = Physics.CheckSphere(feet.position, feetRadius, groundLayer);
     }
 
     private void InputManager_OnMoveInput(Vector2 moveInput)
     {
-        Vector3 moveVector = moveInput.x * cameraHolder.right + moveInput.y * cameraHolder.forward;
-        moveVelocity = moveVector.normalized * speed;
+       this.moveInput = moveInput;
     }
 
     private void InputManager_OnLookInput(Vector2 lookVector)
@@ -97,5 +111,9 @@ public class CharacterController : MonoBehaviour
 
     private void InputManager_OnJumpInput()
     {
+        if (isGrounded)
+        {
+            rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 }
