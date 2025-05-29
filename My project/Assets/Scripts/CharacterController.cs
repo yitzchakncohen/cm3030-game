@@ -5,7 +5,8 @@ public class CharacterController : MonoBehaviour
 {
     private InputManager inputManager;
     private Rigidbody rigidBody;
-    [SerializeField] private Transform cameraHolder;
+    [SerializeField] private Transform head;
+    [SerializeField] private Transform crouchPosition;
     [SerializeField] private Transform feet;
     [SerializeField] private float feetRadius = 0.1f;
     [SerializeField] private float speed = 1f;
@@ -16,19 +17,22 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private Vector2 moveInput;
     private Vector2 lookVector;
+    private Vector3 headUpPosition;
     private bool isGrounded = false;
 
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
         rigidBody = GetComponent<Rigidbody>();
+        headUpPosition = head.localPosition;
     }
 
     private void OnEnable()
     {
         inputManager.OnMoveInput += InputManager_OnMoveInput;
         inputManager.OnLookInput += InputManager_OnLookInput;
-        inputManager.OnCrouchInput += InputManager_OnCrouchInput;
+        inputManager.OnCrouchButtonDown += InputManager_OnCrouchButtonDown;
+        inputManager.OnCrouchButtonUp += InputManager_OnCrouchButtonUp;
         inputManager.OnJumpInput += InputManager_OnJumpInput;
     }
 
@@ -36,7 +40,8 @@ public class CharacterController : MonoBehaviour
     {
         inputManager.OnMoveInput -= InputManager_OnMoveInput;
         inputManager.OnLookInput -= InputManager_OnLookInput;
-        inputManager.OnCrouchInput -= InputManager_OnCrouchInput;
+        inputManager.OnCrouchButtonDown -= InputManager_OnCrouchButtonDown;
+        inputManager.OnCrouchButtonUp -= InputManager_OnCrouchButtonUp;
         inputManager.OnJumpInput -= InputManager_OnJumpInput;
     }
 
@@ -57,17 +62,17 @@ public class CharacterController : MonoBehaviour
     {
         //Horizontal Rotation in quaternions
         float horizontalRotationDelta = lookVector.x * cameraHorizontalSensitivity * Time.deltaTime;
-        cameraHolder.localRotation *= Quaternion.AngleAxis(horizontalRotationDelta, Vector3.up);
+        head.localRotation *= Quaternion.AngleAxis(horizontalRotationDelta, Vector3.up);
 
         //Vertical Rotation in quaternions
         float verticalRotationDelta = -lookVector.y * cameraVerticalSensitivity * Time.deltaTime;
-        cameraHolder.localRotation *= Quaternion.AngleAxis(verticalRotationDelta, Vector3.right);
+        head.localRotation *= Quaternion.AngleAxis(verticalRotationDelta, Vector3.right);
 
         //Clamp vertical rotation
-        var eulerAngles = cameraHolder.localEulerAngles;
+        var eulerAngles = head.localEulerAngles;
         eulerAngles.z = 0;
 
-        var verticalAngle = cameraHolder.localEulerAngles.x;
+        var verticalAngle = head.localEulerAngles.x;
 
         if (verticalAngle > 180 && verticalAngle < 360 - verticalLookClamp.y)
         {
@@ -78,12 +83,12 @@ public class CharacterController : MonoBehaviour
             eulerAngles.x = -verticalLookClamp.x;
         }
 
-        cameraHolder.localEulerAngles = eulerAngles;
+        head.localEulerAngles = eulerAngles;
     }
 
     private void Move()
     {
-        Vector3 moveVector = moveInput.x * cameraHolder.right + moveInput.y * cameraHolder.forward;
+        Vector3 moveVector = moveInput.x * head.right + moveInput.y * head.forward;
         moveVector = Vector3.ProjectOnPlane(moveVector, Vector3.up);
         Vector3 moveVelocity = moveVector.normalized * speed;
         Vector3 moveForce = moveVelocity - new Vector3(rigidBody.linearVelocity.x, 0f, rigidBody.linearVelocity.z);
@@ -105,8 +110,14 @@ public class CharacterController : MonoBehaviour
         this.lookVector = lookVector;
     }
 
-    private void InputManager_OnCrouchInput()
+    private void InputManager_OnCrouchButtonDown()
     {
+        head.localPosition = crouchPosition.localPosition;
+    }
+
+    private void InputManager_OnCrouchButtonUp()
+    {
+        head.localPosition = headUpPosition;
     }
 
     private void InputManager_OnJumpInput()

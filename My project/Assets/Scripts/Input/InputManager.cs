@@ -8,7 +8,8 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     public event Action<Vector2> OnMoveInput;
     public event Action<Vector2> OnLookInput;
     public event Action OnJumpInput;
-    public event Action OnCrouchInput;
+    public event Action OnCrouchButtonDown;
+    public event Action OnCrouchButtonUp;
 
     private PlayerActions playerActions;
 
@@ -48,12 +49,16 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
             OnJumpInput?.Invoke();
         }
     }
-    
+
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
-            OnCrouchInput?.Invoke();
+            OnCrouchButtonDown?.Invoke();
+        }
+        else if (context.canceled)
+        {
+            OnCrouchButtonUp?.Invoke();
         }
     }
 }
