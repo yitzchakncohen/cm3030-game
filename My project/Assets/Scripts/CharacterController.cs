@@ -6,6 +6,7 @@ public class CharacterController : MonoBehaviour
     private InputManager inputManager;
     private Rigidbody rigidBody;
     [SerializeField] private Transform head;
+    [SerializeField] private Transform hand;
     [SerializeField] private Transform crouchPosition;
     [SerializeField] private Transform feet;
     [SerializeField] private float feetRadius = 0.1f;
@@ -14,6 +15,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float cameraHorizontalSensitivity = 10f;
     [SerializeField] private float cameraVerticalSensitivity = 10f;
     [SerializeField] private float pickupDistance = 2f;
+    [SerializeField] private float grabForce = 10f;
     [SerializeField] private Vector2 verticalLookClamp;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask pickupsLayer;
@@ -56,6 +58,7 @@ public class CharacterController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        MoveGrabbedPickup();
     }
 
     private void Update()
@@ -102,6 +105,14 @@ public class CharacterController : MonoBehaviour
         Vector3 moveVelocity = moveVector.normalized * speed;
         Vector3 moveForce = moveVelocity - new Vector3(rigidBody.linearVelocity.x, 0f, rigidBody.linearVelocity.z);
         rigidBody.AddForce(moveForce, ForceMode.VelocityChange);
+    }
+
+    private void MoveGrabbedPickup()
+    {
+        if (grabbedPickup != null)
+        {
+            grabbedPickup.MoveToTarget(hand, grabForce);
+        }
     }
 
     private void CheckIsGround()
@@ -166,7 +177,8 @@ public class CharacterController : MonoBehaviour
         if (targetPickup == null) return;
         grabbedPickup = targetPickup;
         grabbedPickup.Grab();
-        grabbedPickup.transform.SetParent(head);
+        grabbedPickup.transform.SetParent(hand);
+        grabbedPickup.transform.position = hand.position;
     }
     
     private void InputManager_OnGrabInputUp()

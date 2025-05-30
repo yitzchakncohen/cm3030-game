@@ -186,3 +186,6 @@ MonoBehaviour:
   grabbedMaterial: {fileID: 2100000, guid: f386d9d45050ef44784115620717bed8, type: 2}
   meshRenderer: {fileID: 4293316522371813186}
   rigidBody: {fileID: 1431013908145915526}
+  freeDampning: 1
+  grabbedDampning: 10
+  moveDistance: 0.2

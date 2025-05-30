@@ -9,6 +9,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private float freeDampning = 1f;
     [SerializeField] private float grabbedDampning = 10f;
+    [SerializeField] private float moveDistance = 0.5f;
 
     public void Target()
     {
@@ -29,5 +30,14 @@ public class Pickup : MonoBehaviour
         rigidBody.useGravity = false;
         rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
         rigidBody.linearDamping = grabbedDampning;
+    }
+
+    public void MoveToTarget(Transform target, float grabForce)
+    {
+        if (Vector3.Distance(target.position, transform.position) > moveDistance)
+        {
+            Vector3 pickupMoveDirection = (target.position - transform.position).normalized;
+            rigidBody.AddForce(pickupMoveDirection * grabForce);            
+        }
     }
 }
