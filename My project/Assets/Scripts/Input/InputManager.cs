@@ -10,6 +10,8 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     public event Action OnJumpInput;
     public event Action OnCrouchButtonDown;
     public event Action OnCrouchButtonUp;
+    public event Action OnGrabInputDown;
+    public event Action OnGrabInputUp;
 
     private PlayerActions playerActions;
 
@@ -59,6 +61,18 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
         else if (context.canceled)
         {
             OnCrouchButtonUp?.Invoke();
+        }
+    }
+
+    public void OnGrab(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            OnGrabInputDown?.Invoke();
+        }
+        else if (context.canceled)
+        {
+            OnGrabInputUp?.Invoke();
         }
     }
 }

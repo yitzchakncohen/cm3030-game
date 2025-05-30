@@ -13,8 +13,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float cameraHorizontalSensitivity = 10f;
     [SerializeField] private float cameraVerticalSensitivity = 10f;
+    [SerializeField] private float pickupDistance = 2f;
     [SerializeField] private Vector2 verticalLookClamp;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask pickupsLayer;
+    private Pickup grabbedPickup = null;
+    private Pickup targetPickup = null;
     private Vector2 moveInput;
     private Vector2 lookVector;
     private Vector3 headUpPosition;
@@ -34,6 +38,8 @@ public class CharacterController : MonoBehaviour
         inputManager.OnCrouchButtonDown += InputManager_OnCrouchButtonDown;
         inputManager.OnCrouchButtonUp += InputManager_OnCrouchButtonUp;
         inputManager.OnJumpInput += InputManager_OnJumpInput;
+        inputManager.OnGrabInputDown += InputManager_OnGrabInputDown;
+        inputManager.OnGrabInputUp += InputManager_OnGrabInputUp;
     }
 
     private void OnDisable()
@@ -43,6 +49,8 @@ public class CharacterController : MonoBehaviour
         inputManager.OnCrouchButtonDown -= InputManager_OnCrouchButtonDown;
         inputManager.OnCrouchButtonUp -= InputManager_OnCrouchButtonUp;
         inputManager.OnJumpInput -= InputManager_OnJumpInput;
+        inputManager.OnGrabInputDown -= InputManager_OnGrabInputDown;
+        inputManager.OnGrabInputUp -= InputManager_OnGrabInputUp;
     }
 
     private void FixedUpdate()
@@ -54,6 +62,7 @@ public class CharacterController : MonoBehaviour
     {
         Look();
         CheckIsGround();
+        CheckForPickups();
     }
 
     /* --- Code modified from my previous implementation --- */
@@ -100,9 +109,33 @@ public class CharacterController : MonoBehaviour
         isGrounded = Physics.CheckSphere(feet.position, feetRadius, groundLayer);
     }
 
+    private void CheckForPickups()
+    {
+        if (grabbedPickup != null) return;
+
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * pickupDistance, Color.red);
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, pickupDistance, pickupsLayer))
+        {
+            if (hit.transform.TryGetComponent<Pickup>(out Pickup pickup))
+            {
+                if (pickup != targetPickup)
+                {
+                    targetPickup?.Reset();
+                    targetPickup = pickup;
+                    targetPickup.Target();
+                }
+            }
+        }
+        else
+        {
+            targetPickup?.Reset();
+            targetPickup = null;
+        }
+    }
+
     private void InputManager_OnMoveInput(Vector2 moveInput)
     {
-       this.moveInput = moveInput;
+        this.moveInput = moveInput;
     }
 
     private void InputManager_OnLookInput(Vector2 lookVector)
@@ -126,5 +159,21 @@ public class CharacterController : MonoBehaviour
         {
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    private void InputManager_OnGrabInputDown()
+    {
+        if (targetPickup == null) return;
+        grabbedPickup = targetPickup;
+        grabbedPickup.Grab();
+        grabbedPickup.transform.SetParent(head);
+    }
+    
+    private void InputManager_OnGrabInputUp()
+    {
+        if (grabbedPickup == null) return;
+        grabbedPickup.transform.SetParent(null);
+        grabbedPickup.Reset();
+        grabbedPickup = null;
     }
 }
