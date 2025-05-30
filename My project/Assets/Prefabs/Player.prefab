@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2857903657655532407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4092059722748487645}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4092059722748487645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857903657655532407}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.35, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2479373941086675832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3575069190752273940
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 2479373941086675832}
+  hand: {fileID: 4092059722748487645}
   crouchPosition: {fileID: 490925746695509453}
   feet: {fileID: 4369341926507449439}
   feetRadius: 0.1
@@ -211,10 +243,15 @@ MonoBehaviour:
   jumpForce: 5
   cameraHorizontalSensitivity: 10
   cameraVerticalSensitivity: 10
+  pickupDistance: 2
+  grabForce: 100
   verticalLookClamp: {x: -45, y: 60}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  pickupsLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!54 &657732242166826916
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -549,5 +586,6 @@ Transform:
   m_Children:
   - {fileID: 5191094221581159914}
   - {fileID: 4670857150120355871}
+  - {fileID: 4092059722748487645}
   m_Father: {fileID: 7197864777881572663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
