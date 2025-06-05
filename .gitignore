@@ -75,3 +75,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /My project/Library
 /My project/Temp
+
+#vscode
+.vscode/
+/My project/UserSettings
+/My project/UserSettings
