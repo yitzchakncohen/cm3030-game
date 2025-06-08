@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 7197864777881572663}
   - component: {fileID: 4376851888571994974}
   - component: {fileID: 1753123869089128974}
+  - component: {fileID: 3066268290433960380}
   - component: {fileID: 657732242166826916}
   m_Layer: 0
   m_Name: Player
@@ -248,10 +249,28 @@ MonoBehaviour:
   verticalLookClamp: {x: -45, y: 60}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   pickupsLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
+--- !u!114 &3066268290433960380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5956166457254833813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fad04457e8f4b4197c4d70161ef8d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputManager: {fileID: 4376851888571994974}
+  pickupsLayer:
+    serializedVersion: 2
+    m_Bits: 896
+  clueScanTime: 2
+  scanDistance: 2
 --- !u!54 &657732242166826916
 Rigidbody:
   m_ObjectHideFlags: 0

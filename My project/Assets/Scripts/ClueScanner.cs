@@ -1,0 +1,75 @@
+using System;
+using UnityEngine;
+
+public class ClueScanner : MonoBehaviour
+{
+    [SerializeField] private InputManager inputManager;
+    [SerializeField] private LayerMask pickupsLayer;
+    [SerializeField] private float clueScanTime = 2f;
+    [SerializeField] private float scanDistance = 2f;
+    private Clue targetClue = null;
+    private float timer = 0f;
+    private bool isScanning = false;
+
+    private void OnEnable()
+    {
+        inputManager.OnScanInputDown += InputManager_OnScanInputDown;
+        inputManager.OnScanInputUp += InputManager_OnScanInputUp;
+    }
+
+    private void OnDisable()
+    {
+        inputManager.OnScanInputDown -= InputManager_OnScanInputDown;
+        inputManager.OnScanInputUp -= InputManager_OnScanInputUp;
+    }
+
+    private void Update()
+    {
+        CheckForClue();
+
+        if (!isScanning || targetClue == null) return;
+
+        timer += Time.deltaTime;
+
+        if (timer > clueScanTime)
+        {
+            targetClue.SetScanned();
+        }
+    }
+
+    private void InputManager_OnScanInputDown()
+    {
+        isScanning = true;
+        timer = 0f;
+    }
+
+    private void InputManager_OnScanInputUp()
+    {
+        isScanning = false;
+    }
+
+    private void CheckForClue()
+    {
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * scanDistance, Color.red);
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, scanDistance, pickupsLayer))
+        {
+            if (hit.transform.TryGetComponent<Clue>(out Clue clue))
+            {
+                if (clue != targetClue && !clue.IsScanned)
+                {
+                    targetClue?.Reset();
+                    targetClue = clue;
+                    targetClue.Target();
+                }
+            }
+        }
+        else
+        {
+            if (targetClue != null && !targetClue.IsScanned)
+            {
+                targetClue.Reset();                
+            }
+            targetClue = null;
+        }
+    }
+}

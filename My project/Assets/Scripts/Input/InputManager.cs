@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     public event Action OnCrouchButtonUp;
     public event Action OnGrabInputDown;
     public event Action OnGrabInputUp;
+    public event Action OnScanInputDown;
+    public event Action OnScanInputUp;
 
     private PlayerActions playerActions;
 
@@ -73,6 +75,18 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
         else if (context.canceled)
         {
             OnGrabInputUp?.Invoke();
+        }
+    }
+
+    public void OnScan(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            OnScanInputDown?.Invoke();
+        }
+        else if (context.canceled)
+        {
+            OnScanInputUp?.Invoke();
         }
     }
 }
