@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ClueScanner : MonoBehaviour
 {
+    public event Action<Clue> OnClueScanned;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private LayerMask pickupsLayer;
     [SerializeField] private float clueScanTime = 2f;
@@ -34,6 +35,8 @@ public class ClueScanner : MonoBehaviour
         if (timer > clueScanTime)
         {
             targetClue.SetScanned();
+            OnClueScanned?.Invoke(targetClue);
+            targetClue = null;
         }
     }
 
