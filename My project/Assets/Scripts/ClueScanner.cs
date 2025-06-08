@@ -6,6 +6,7 @@ public class ClueScanner : MonoBehaviour
     public event Action<Clue> OnClueScanned;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private LayerMask pickupsLayer;
+    [SerializeField] private GameObject magnifyingGlass;
     [SerializeField] private float clueScanTime = 2f;
     [SerializeField] private float scanDistance = 2f;
     private Clue targetClue = null;
@@ -16,6 +17,7 @@ public class ClueScanner : MonoBehaviour
     {
         inputManager.OnScanInputDown += InputManager_OnScanInputDown;
         inputManager.OnScanInputUp += InputManager_OnScanInputUp;
+        magnifyingGlass.SetActive(false);
     }
 
     private void OnDisable()
@@ -31,9 +33,11 @@ public class ClueScanner : MonoBehaviour
         if (!isScanning || targetClue == null) return;
 
         timer += Time.deltaTime;
+        magnifyingGlass.SetActive(true);
 
         if (timer > clueScanTime)
         {
+            magnifyingGlass.SetActive(false);
             targetClue.SetScanned();
             OnClueScanned?.Invoke(targetClue);
             targetClue = null;
@@ -70,9 +74,10 @@ public class ClueScanner : MonoBehaviour
         {
             if (targetClue != null && !targetClue.IsScanned)
             {
-                targetClue.Reset();                
+                targetClue.Reset();
             }
             targetClue = null;
+            magnifyingGlass.SetActive(false);
         }
     }
 }
