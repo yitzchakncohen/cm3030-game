@@ -135,6 +135,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Scan"",
+                    ""type"": ""Button"",
+                    ""id"": ""c993d62c-ff6b-4293-954e-e2db1569da62"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -236,6 +245,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Grab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb875bb8-2ef9-4825-b096-8fa938271966"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Mouse&Keyboard"",
+                    ""action"": ""Scan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -266,6 +286,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_CharacterController_Crouch = m_CharacterController.FindAction("Crouch", throwIfNotFound: true);
         m_CharacterController_Jump = m_CharacterController.FindAction("Jump", throwIfNotFound: true);
         m_CharacterController_Grab = m_CharacterController.FindAction("Grab", throwIfNotFound: true);
+        m_CharacterController_Scan = m_CharacterController.FindAction("Scan", throwIfNotFound: true);
     }
 
     ~@PlayerActions()
@@ -351,6 +372,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterController_Crouch;
     private readonly InputAction m_CharacterController_Jump;
     private readonly InputAction m_CharacterController_Grab;
+    private readonly InputAction m_CharacterController_Scan;
     /// <summary>
     /// Provides access to input actions defined in input action map "CharacterController".
     /// </summary>
@@ -382,6 +404,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "CharacterController/Grab".
         /// </summary>
         public InputAction @Grab => m_Wrapper.m_CharacterController_Grab;
+        /// <summary>
+        /// Provides access to the underlying input action "CharacterController/Scan".
+        /// </summary>
+        public InputAction @Scan => m_Wrapper.m_CharacterController_Scan;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -423,6 +449,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Grab.started += instance.OnGrab;
             @Grab.performed += instance.OnGrab;
             @Grab.canceled += instance.OnGrab;
+            @Scan.started += instance.OnScan;
+            @Scan.performed += instance.OnScan;
+            @Scan.canceled += instance.OnScan;
         }
 
         /// <summary>
@@ -449,6 +478,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Grab.started -= instance.OnGrab;
             @Grab.performed -= instance.OnGrab;
             @Grab.canceled -= instance.OnGrab;
+            @Scan.started -= instance.OnScan;
+            @Scan.performed -= instance.OnScan;
+            @Scan.canceled -= instance.OnScan;
         }
 
         /// <summary>
@@ -537,5 +569,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnGrab(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Scan" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnScan(InputAction.CallbackContext context);
     }
 }
