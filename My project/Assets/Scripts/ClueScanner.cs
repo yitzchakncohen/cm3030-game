@@ -34,6 +34,8 @@ public class ClueScanner : MonoBehaviour
 
         timer += Time.deltaTime;
         magnifyingGlass.SetActive(true);
+        float completePercentage = timer / clueScanTime;
+        targetClue.UpdateScan(completePercentage);
 
         if (timer > clueScanTime)
         {
