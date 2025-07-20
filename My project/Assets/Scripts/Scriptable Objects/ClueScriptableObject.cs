@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ClueScriptableObject", menuName = "Scriptable Objects/ClueScriptableObject")]
@@ -8,4 +9,6 @@ public class ClueScriptableObject : ScriptableObject
     public GameObject model;
 
     public string description;
+
+    public List<Vector3> defaultSpawnPoints;
 }
