@@ -5,5 +5,7 @@ public class ClueScriptableObject : ScriptableObject
 {
     public string clueName;
 
-    public GameObject clueModel;
+    public GameObject model;
+
+    public string description;
 }

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 082a3cd3c87669b45b393758b0716aec, type: 3}
-  m_Name: Knife
+  m_Name: Campaign flyers
   m_EditorClassIdentifier: 
-  clueName: Knife
+  clueName: Campaign flyers
   model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
   description: 

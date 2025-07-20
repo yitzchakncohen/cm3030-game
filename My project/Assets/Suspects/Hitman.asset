@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 082a3cd3c87669b45b393758b0716aec, type: 3}
-  m_Name: Knife
+  m_Script: {fileID: 11500000, guid: 1e6e0fece8ab8344eaae910429f08f14, type: 3}
+  m_Name: Hitman
   m_EditorClassIdentifier: 
-  clueName: Knife
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  suspectName: The Hitman
+  clues:
+  - {fileID: 11400000, guid: 7a2cd47beba6143429f54f5d7c34d295, type: 2}
+  model: {fileID: 0}
