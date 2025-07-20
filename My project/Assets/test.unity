@@ -228,7 +228,6 @@ MonoBehaviour:
   - {x: -123, y: 0.5, z: -53}
   suspects:
   - {fileID: 11400000, guid: 3db61dd8772594c4286e6a640d79188e, type: 2}
-  - {fileID: 11400000, guid: 87fa94b979c46954697b82965508fbc5, type: 2}
   - {fileID: 11400000, guid: 42856a4eb4b354545a887953c57f849e, type: 2}
   - {fileID: 11400000, guid: e036a1327712bd641b4fe7126b3b9d71, type: 2}
 --- !u!4 &428424640
@@ -994,3 +993,4 @@ SceneRoots:
   - {fileID: 1117815823}
   - {fileID: 1633318419}
   - {fileID: 428424640}
+  - {fileID: 794448958}
