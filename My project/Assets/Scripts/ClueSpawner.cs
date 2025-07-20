@@ -92,10 +92,20 @@ public class ClueSpawner : MonoBehaviour
     }
     void PlaceClue(ClueScriptableObject clue)
     {
-        int i = Random.Range(0, spawnPoints.Count());
-        // TODO - Implement default spawn points for certain clues. 
-        GameObject currentClue = Instantiate(clue.model, spawnPoints[i], Quaternion.identity);
+        int i;
+        List<Vector3> activeSpawnPoints;
+        if (clue.defaultSpawnPoints.Count() != 0)
+        {
+            activeSpawnPoints = clue.defaultSpawnPoints;
+        }
+        else
+        {
+            activeSpawnPoints = spawnPoints;
+        }
+        i = Random.Range(0, clue.defaultSpawnPoints.Count());
+
+        GameObject currentClue = Instantiate(clue.model, activeSpawnPoints[i], Quaternion.identity);
         currentClue.name = clue.clueName;
-        spawnPoints.RemoveAt(i);
+        activeSpawnPoints.RemoveAt(i);
     }
 }
