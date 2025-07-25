@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     public event Action OnGrabInputUp;
     public event Action OnScanInputDown;
     public event Action OnScanInputUp;
+    public event Action OnShowNotesInput;
 
     private PlayerActions playerActions;
 
@@ -87,6 +88,14 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
         else if (context.canceled)
         {
             OnScanInputUp?.Invoke();
+        }
+    }
+
+    public void OnShowNotes(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnShowNotesInput?.Invoke();             
         }
     }
 }

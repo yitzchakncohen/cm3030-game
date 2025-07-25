@@ -137,6 +137,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ShowNotes"",
+                    ""type"": ""Button"",
+                    ""id"": ""42fd8fa4-3f84-43aa-872d-95ffa97acc91"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Scan"",
                     ""type"": ""Button"",
                     ""id"": ""c993d62c-ff6b-4293-954e-e2db1569da62"",
@@ -241,8 +250,19 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Mouse&Keyboard"",
                     ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ed926f5-777f-4568-90f1-e8df48f9c450"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Mouse&Keyboard"",
+                    ""action"": ""ShowNotes"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -286,6 +306,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_CharacterController_Crouch = m_CharacterController.FindAction("Crouch", throwIfNotFound: true);
         m_CharacterController_Jump = m_CharacterController.FindAction("Jump", throwIfNotFound: true);
         m_CharacterController_Grab = m_CharacterController.FindAction("Grab", throwIfNotFound: true);
+        m_CharacterController_ShowNotes = m_CharacterController.FindAction("ShowNotes", throwIfNotFound: true);
         m_CharacterController_Scan = m_CharacterController.FindAction("Scan", throwIfNotFound: true);
     }
 
@@ -372,6 +393,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterController_Crouch;
     private readonly InputAction m_CharacterController_Jump;
     private readonly InputAction m_CharacterController_Grab;
+    private readonly InputAction m_CharacterController_ShowNotes;
     private readonly InputAction m_CharacterController_Scan;
     /// <summary>
     /// Provides access to input actions defined in input action map "CharacterController".
@@ -404,6 +426,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "CharacterController/Grab".
         /// </summary>
         public InputAction @Grab => m_Wrapper.m_CharacterController_Grab;
+        /// <summary>
+        /// Provides access to the underlying input action "CharacterController/ShowNotes".
+        /// </summary>
+        public InputAction @ShowNotes => m_Wrapper.m_CharacterController_ShowNotes;
         /// <summary>
         /// Provides access to the underlying input action "CharacterController/Scan".
         /// </summary>
@@ -449,6 +475,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Grab.started += instance.OnGrab;
             @Grab.performed += instance.OnGrab;
             @Grab.canceled += instance.OnGrab;
+            @ShowNotes.started += instance.OnShowNotes;
+            @ShowNotes.performed += instance.OnShowNotes;
+            @ShowNotes.canceled += instance.OnShowNotes;
             @Scan.started += instance.OnScan;
             @Scan.performed += instance.OnScan;
             @Scan.canceled += instance.OnScan;
@@ -478,6 +507,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Grab.started -= instance.OnGrab;
             @Grab.performed -= instance.OnGrab;
             @Grab.canceled -= instance.OnGrab;
+            @ShowNotes.started -= instance.OnShowNotes;
+            @ShowNotes.performed -= instance.OnShowNotes;
+            @ShowNotes.canceled -= instance.OnShowNotes;
             @Scan.started -= instance.OnScan;
             @Scan.performed -= instance.OnScan;
             @Scan.canceled -= instance.OnScan;
@@ -569,6 +601,13 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnGrab(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ShowNotes" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShowNotes(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Scan" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
