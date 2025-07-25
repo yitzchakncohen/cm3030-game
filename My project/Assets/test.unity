@@ -490,11 +490,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 657732242166826916, guid: 836330f190b2eb844805ea81ce8e9b9d,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5956166457254833813, guid: 836330f190b2eb844805ea81ce8e9b9d,
         type: 3}
       propertyPath: m_Name
@@ -994,3 +989,4 @@ SceneRoots:
   - {fileID: 1117815823}
   - {fileID: 1633318419}
   - {fileID: 428424640}
+  - {fileID: 794448958}
