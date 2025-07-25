@@ -4783,7 +4783,7 @@ MonoBehaviour:
   m_PosLeft: {x: 0, y: 0}
   m_PosRight: {x: 0, y: 0}
   m_Scope: 1
-  m_SplitterFlex: 0
+  m_SplitterFlex: 0.2
   m_SearchText: 
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
@@ -4934,8 +4934,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 87
+    x: 0
+    y: 24
     width: 302
     height: 853
   m_SerializedDataModeController:
@@ -5001,8 +5001,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 311
-    y: 87
+    x: 304
+    y: 24
     width: 1668
     height: 853
   m_SerializedDataModeController:
@@ -5391,7 +5391,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -70.21275, y: 10.356647, z: -67.803375}
+    m_Target: {x: -5.2822304, y: 4.955734, z: 25.543856}
     speed: 2
     m_Value: {x: -70.21275, y: 10.356647, z: -67.803375}
   m_RenderMode: 0
@@ -5402,7 +5402,7 @@ MonoBehaviour:
   m_ValidateTrueMetals: 0
   m_DoValidateTrueMetals: 0
   m_SceneViewState:
-    m_AlwaysRefresh: 0
+    m_AlwaysRefresh: 1
     showFog: 1
     showSkybox: 1
     showFlares: 1
@@ -5439,15 +5439,15 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.22888778, y: 0.5316953, z: -0.15216461, w: -0.8012396}
+    m_Target: {x: 0.14394666, y: -0.33977354, z: 0.052704725, w: 0.92793256}
     speed: 2
     m_Value: {x: -0.22886164, y: 0.53163457, z: -0.15214723, w: -0.8011481}
   m_Size:
-    m_Target: 11.083812
+    m_Target: 10.53716
     speed: 2
     m_Value: 11.083812
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
     m_Value: 1
   m_CameraSettings:
@@ -5539,8 +5539,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 966
+    x: 0
+    y: 903
     width: 1972
     height: 372
   m_SerializedDataModeController:
@@ -5730,8 +5730,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1981
-    y: 87
+    x: 1974
+    y: 24
     width: 570
     height: 1251
   m_SerializedDataModeController:
