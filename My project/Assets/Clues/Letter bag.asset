@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Letter bag
   m_EditorClassIdentifier: 
   clueName: Letter bag
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  model: {fileID: 919132149155446097, guid: f434c512baad6714d96d7ddda0575937, type: 3}
+  description: A bag full of letters. Surprisingly heavy.
+  defaultSpawnPoints: []

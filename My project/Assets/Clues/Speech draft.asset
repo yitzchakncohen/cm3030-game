@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Speech draft
   m_EditorClassIdentifier: 
   clueName: Speech draft
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  model: {fileID: 919132149155446097, guid: d2c286f8c78f224419a3c19ed28edf96, type: 3}
+  description: A half-written speech. Not the best you've seen, but it is a rough
+    draft.
+  defaultSpawnPoints: []

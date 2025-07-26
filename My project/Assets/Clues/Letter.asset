@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Letter
   m_EditorClassIdentifier: 
   clueName: Letter
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  model: {fileID: 919132149155446097, guid: a11334a8ac291fd4dbf5be9d8710442e, type: 3}
+  description: A letter. Nothing suspicious about the contents, but why is it here?
+  defaultSpawnPoints: []
