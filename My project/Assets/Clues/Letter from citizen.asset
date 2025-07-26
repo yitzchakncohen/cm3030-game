@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Letter from citizen
   m_EditorClassIdentifier: 
   clueName: Letter from a concerned citizen
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  model: {fileID: 919132149155446097, guid: 69cddf39e271e804ba12f511ea6e57e5, type: 3}
+  description: A letter detailing the concerns of a citizen. Seems like they weren't
+    too impressed with a recently passed bill.
+  defaultSpawnPoints: []

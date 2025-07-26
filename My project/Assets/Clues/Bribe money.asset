@@ -16,5 +16,4 @@ MonoBehaviour:
   model: {fileID: 919132149155446097, guid: ca97c5a5a4a182047a3f07139c0bf6e9, type: 3}
   description: A stack of money. Looks innocuous enough, but the sheer amount suggests
     dirty-dealings.
-  defaultSpawnPoints:
-  - {x: 10, y: 0, z: 0}
+  defaultSpawnPoints: []
