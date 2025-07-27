@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 428424640}
   - component: {fileID: 428424639}
   m_Layer: 0
-  m_Name: SpawnController
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48354bc246d89e48a1baf0eb6b5e6ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointsFile: {fileID: 4900000, guid: 6781e74fc2c643346a577a6f7074b615, type: 3}
   spawnPoints:
   - {x: -73, y: 0.5, z: -64}
   - {x: -73, y: 0.5, z: -57}
@@ -280,7 +279,7 @@ MonoBehaviour:
   - {x: -105, y: 0.5, z: -65}
   - {x: -114, y: 0.5, z: -54}
   - {x: -123, y: 0.5, z: -53}
-  suspects:
+  allSuspects:
   - {fileID: 11400000, guid: 3db61dd8772594c4286e6a640d79188e, type: 2}
   - {fileID: 11400000, guid: 42856a4eb4b354545a887953c57f849e, type: 2}
   - {fileID: 11400000, guid: e036a1327712bd641b4fe7126b3b9d71, type: 2}
@@ -453,7 +452,7 @@ PrefabInstance:
     - target: {fileID: 7062996978862460524, guid: 77d3a6be0b7832c4db89d7d41dfb0306,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

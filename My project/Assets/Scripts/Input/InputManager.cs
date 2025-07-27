@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     public event Action OnScanInputDown;
     public event Action OnScanInputUp;
     public event Action OnShowNotesInput;
+    public event Action<int> OnSuspectSelectInput;
 
     private PlayerActions playerActions;
 
@@ -95,7 +96,18 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     {
         if (context.performed)
         {
-            OnShowNotesInput?.Invoke();             
+            OnShowNotesInput?.Invoke();
+        }
+    }
+    
+    public void OnSuspectSelect(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            // adapted from a Unity answer from MikeM1970: 
+            // https://discussions.unity.com/t/getting-number-keys-value-with-new-unity-input-system/232960/3
+            int.TryParse(context.control.name,out int x);
+            OnSuspectSelectInput?.Invoke(x);
         }
     }
 }
