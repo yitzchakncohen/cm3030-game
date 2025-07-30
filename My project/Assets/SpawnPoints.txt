@@ -1,0 +1,441 @@
+GenericPropertyJSON: {
+    "name": "spawnPoints",
+    "type": -1,
+    "arraySize": 20,
+    "arrayType": "Vector3",
+    "children": [
+        {
+            "name": "Array",
+            "type": -1,
+            "arraySize": 20,
+            "arrayType": "Vector3",
+            "children": [
+                {
+                    "name": "size",
+                    "type": 12,
+                    "val": 20
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -73
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -64
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -73
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -57
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -68.2
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -57
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -69
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -54
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -67
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -47
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -74
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -49
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -82
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -47
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -90.25
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -46.7
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -96
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -43
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -99
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -41
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -99
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -50
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -99
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -58
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -93
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -58.6
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -91
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -58.9
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -93
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -51.7
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -91
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -51.8
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -96
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -67.4
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -105
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -65
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -114
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -54
+                        }
+                    ]
+                },
+                {
+                    "name": "data",
+                    "type": 9,
+                    "children": [
+                        {
+                            "name": "x",
+                            "type": 2,
+                            "val": -123
+                        },
+                        {
+                            "name": "y",
+                            "type": 2,
+                            "val": 0.5
+                        },
+                        {
+                            "name": "z",
+                            "type": 2,
+                            "val": -53
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
