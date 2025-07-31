@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2505592302351785993}
   - component: {fileID: 6197850018613016742}
   - component: {fileID: 1580358706745300098}
-  - component: {fileID: 7936235676035308052}
+  - component: {fileID: 4334324491912680672}
   m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7936235676035308052
+--- !u!114 &4334324491912680672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8483321721555564c854a6d070e8ab03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 6197850018613016742}
+  meshRenderers:
+  - {fileID: 6197850018613016742}
   scannedEffect: {fileID: 6986046417892604610}
 --- !u!1 &6986046417892604610
 GameObject:

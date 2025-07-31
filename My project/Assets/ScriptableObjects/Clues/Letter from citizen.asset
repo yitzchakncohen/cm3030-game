@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 082a3cd3c87669b45b393758b0716aec, type: 3}
-  m_Name: Speech draft
+  m_Name: Letter from citizen
   m_EditorClassIdentifier: 
-  clueName: Speech draft
-  model: {fileID: 919132149155446097, guid: d2c286f8c78f224419a3c19ed28edf96, type: 3}
-  description: A half-written speech. Not the best you've seen, but it is a rough
-    draft.
+  clueName: Letter from a concerned citizen
+  model: {fileID: 3159367751106705862, guid: af5f69bfd8f4da64c8de7310ec7a9f25, type: 3}
+  description: A letter detailing the concerns of a citizen. Seems like they weren't
+    too impressed with a recently passed bill.
   defaultSpawnPoints: []
