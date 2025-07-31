@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 082a3cd3c87669b45b393758b0716aec, type: 3}
-  m_Name: Bribe money
+  m_Name: Letter
   m_EditorClassIdentifier: 
-  clueName: Bribe money
-  model: {fileID: 919132149155446097, guid: ca97c5a5a4a182047a3f07139c0bf6e9, type: 3}
-  description: A stack of money. Looks innocuous enough, but the sheer amount suggests
-    dirty-dealings.
+  clueName: Letter
+  model: {fileID: 3159367751106705862, guid: 5920790332b0b6743967068530a8c0af, type: 3}
+  description: A letter. Nothing suspicious about the contents, but why is it here?
   defaultSpawnPoints: []

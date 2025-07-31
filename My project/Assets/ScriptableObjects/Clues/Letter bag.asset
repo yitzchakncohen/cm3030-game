@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 082a3cd3c87669b45b393758b0716aec, type: 3}
-  m_Name: Greasy rag
+  m_Name: Letter bag
   m_EditorClassIdentifier: 
-  clueName: Greasy rag
-  model: {fileID: 919132149155446097, guid: ef56b53e6f6d3d54cb7d889cd9e5720d, type: 3}
-  description: A rag stained with oil. Looks like it sees constant use.
+  clueName: Letter bag
+  model: {fileID: 3159367751106705862, guid: 3b920870aab110b46a43e0ec07651328, type: 3}
+  description: A bag full of letters. Surprisingly heavy.
   defaultSpawnPoints: []
