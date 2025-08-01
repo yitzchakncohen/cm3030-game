@@ -5,11 +5,13 @@ public class Clue : MonoBehaviour
 {
     private const string GREY_LEVEL_PROPERTY = "greyLevel";
     public bool IsScanned => isScanned;
+    public ClueScriptableObject ClueScriptableObject => clueScriptableObject;
     [SerializeField] private List<MeshRenderer> meshRenderers;
     [SerializeField] private GameObject scannedEffect;
     private List<Material> materials;
     private float highlightAmount = 0.7f;
     private bool isScanned = false;
+    private ClueScriptableObject clueScriptableObject;
 
     private void Awake()
     {
@@ -19,6 +21,11 @@ public class Clue : MonoBehaviour
             meshRenderer.material.SetFloat(GREY_LEVEL_PROPERTY, 1f);
             materials.Add(meshRenderer.material);
         }
+    }
+
+    public void Init(ClueScriptableObject clueScriptableObject)
+    {
+        this.clueScriptableObject = clueScriptableObject;
     }
 
     public void Target()
