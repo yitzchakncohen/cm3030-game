@@ -7,6 +7,7 @@ using UnityEngine;
 public class SuspectScriptableObject : ScriptableObject
 {
     public string suspectName;
+    public string Description;
     public List<ClueScriptableObject> clues;
     public GameObject model;
 

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ClueSpawner : MonoBehaviour
 {
+    [SerializeField] private UIController uIController;
     List<ClueScriptableObject> activeClues;
 
     public TextAsset spawnPointsFile;
@@ -31,7 +32,8 @@ public class ClueSpawner : MonoBehaviour
         Debug.Log("Selecting" + redHerrings.ToString() + " red herrings.");
         for (var i = 0; i < redHerrings; i++)
         {
-            if(suspects.Count() ==0){
+            if (suspects.Count() == 0)
+            {
                 Debug.Log("No suspects remaining to select red herrings from.");
                 break;
             }
@@ -44,10 +46,10 @@ public class ClueSpawner : MonoBehaviour
             PlaceClue(clue);
         }
 
-        
+
 
         // DebugSpawnPoints(suspect.suspectClues[0]);
-
+        uIController.InitializeDossier(suspects);
     }
 
     // Update is called once per frame
@@ -105,6 +107,15 @@ public class ClueSpawner : MonoBehaviour
         i = Random.Range(0, clue.defaultSpawnPoints.Count());
 
         GameObject currentClue = Instantiate(clue.model, activeSpawnPoints[i], Quaternion.identity);
+        Clue clueObject = currentClue.GetComponent<Clue>();
+        if (clueObject != null)
+        {
+            clueObject.Init(clue);
+        }
+        else
+        {
+            Debug.LogWarning($"No clue script found on clue prefab {clue.name}");
+        }
         currentClue.name = clue.clueName;
         activeSpawnPoints.RemoveAt(i);
     }
