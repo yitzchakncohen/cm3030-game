@@ -6,10 +6,12 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private UIController uIController;
+    
 
     List<ClueScriptableObject> activeClues;
 
     // public TextAsset spawnPointsFile;
+    [SerializeField] private GameObject zones;
 
     public List<Vector3> spawnPoints;
 
@@ -170,6 +172,9 @@ public class GameController : MonoBehaviour
     }
     void PlaceClue(ClueScriptableObject clue)
     {
+
+
+
         int i;
         List<Vector3> activeSpawnPoints;
         if (clue.defaultSpawnPoints.Count() != 0)
@@ -181,6 +186,8 @@ public class GameController : MonoBehaviour
             activeSpawnPoints = spawnPoints;
         }
         i = UnityEngine.Random.Range(0, clue.defaultSpawnPoints.Count());
+
+
 
 
         GameObject currentClue = Instantiate(clue.model, activeSpawnPoints[i], Quaternion.identity);
