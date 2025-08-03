@@ -151,7 +151,6 @@ GameObject:
   m_Component:
   - component: {fileID: 207986195}
   - component: {fileID: 207986197}
-  - component: {fileID: 207986196}
   - component: {fileID: 207986198}
   m_Layer: 0
   m_Name: Alley3
@@ -175,27 +174,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641049425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &207986196
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207986194}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &207986197
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -514,7 +492,6 @@ GameObject:
   m_Component:
   - component: {fileID: 763613873}
   - component: {fileID: 763613875}
-  - component: {fileID: 763613874}
   - component: {fileID: 763613876}
   m_Layer: 0
   m_Name: AlleySide
@@ -538,27 +515,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641049425}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!65 &763613874
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763613872}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &763613875
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -686,7 +642,6 @@ GameObject:
   m_Component:
   - component: {fileID: 887408632}
   - component: {fileID: 887408634}
-  - component: {fileID: 887408633}
   - component: {fileID: 887408635}
   m_Layer: 0
   m_Name: BarRear
@@ -710,27 +665,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641049425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &887408633
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887408631}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &887408634
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -807,7 +741,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1061215513}
   - component: {fileID: 1061215515}
-  - component: {fileID: 1061215514}
   - component: {fileID: 1061215516}
   m_Layer: 0
   m_Name: Bar
@@ -831,27 +764,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641049425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1061215514
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061215512}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1061215515
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1204,7 +1116,7 @@ PrefabInstance:
     - target: {fileID: 7197864777881572663, guid: 836330f190b2eb844805ea81ce8e9b9d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -76.5463
+      value: -71.81
       objectReference: {fileID: 0}
     - target: {fileID: 7197864777881572663, guid: 836330f190b2eb844805ea81ce8e9b9d,
         type: 3}
@@ -1739,7 +1651,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1607087218}
   - component: {fileID: 1607087220}
-  - component: {fileID: 1607087219}
   - component: {fileID: 1607087221}
   m_Layer: 0
   m_Name: AlleyRear
@@ -1763,27 +1674,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641049425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1607087219
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607087217}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1607087220
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1838,7 +1728,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1714669453}
   - component: {fileID: 1714669455}
-  - component: {fileID: 1714669454}
   - component: {fileID: 1714669456}
   m_Layer: 0
   m_Name: BarToilets
@@ -1862,27 +1751,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641049425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1714669454
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714669452}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1714669455
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1923,7 +1791,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1717280192}
   - component: {fileID: 1717280194}
-  - component: {fileID: 1717280193}
   - component: {fileID: 1717280195}
   m_Layer: 0
   m_Name: Alley1
@@ -1947,27 +1814,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641049425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1717280193
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717280191}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1717280194
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2802,7 +2648,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1947350966}
   - component: {fileID: 1947350968}
-  - component: {fileID: 1947350967}
   - component: {fileID: 1947350969}
   m_Layer: 0
   m_Name: Alley2
@@ -2826,27 +2671,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641049425}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!65 &1947350967
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947350965}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1947350968
 MeshFilter:
   m_ObjectHideFlags: 0
