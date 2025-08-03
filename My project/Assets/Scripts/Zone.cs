@@ -12,6 +12,12 @@ public class Zone : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Add a clue to the zone if the max number of clues in this zone has not been reached.
+    /// Call <c> GetSpawnPoint</c> to get a valid location to place the clue.
+    /// </summary>
+    /// <returns> True if a clue can be placed within this zone, and 
+    /// false if the max number of clues has already been placed.</returns>
     public bool AddClueToZone()
     {
         //returns false if 
@@ -24,6 +30,13 @@ public class Zone : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Locates a valid spawn point within this zone.
+    /// </summary>
+    /// <returns>
+    /// A Vector3 containing a valid spawn point. If the zone has manually set spawn points, this will be one of these.
+    /// If not, a spawn point will be determined within the bounds of the GameObject.
+    /// </returns>
     public Vector3 getSpawnPoint()
     {
         if (spawnPoints.Count != 0)

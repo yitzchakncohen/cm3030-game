@@ -173,7 +173,7 @@ public class GameController : MonoBehaviour
     void PlaceClue(ClueScriptableObject clue)
     {
 
-        Vector3 spawnPoint = getSpawnPointFromRandomZone();
+        Vector3 spawnPoint = GetSpawnPointFromRandomZone();
 
         GameObject currentClue = Instantiate(clue.model, spawnPoint, Quaternion.identity);
         Clue clueObject = currentClue.GetComponent<Clue>();
@@ -187,7 +187,7 @@ public class GameController : MonoBehaviour
         }
         currentClue.name = clue.clueName;
     }
-    private Vector3 getSpawnPointFromRandomZone()
+    private Vector3 GetSpawnPointFromRandomZone()
     {
         bool cluePlaced = false;
         while (!cluePlaced)
