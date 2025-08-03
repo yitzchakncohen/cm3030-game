@@ -7,9 +7,11 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private UIController uIController;
 
+
     List<ClueScriptableObject> activeClues;
 
     // public TextAsset spawnPointsFile;
+    [SerializeField] private GameObject zones;
 
     public List<Vector3> spawnPoints;
 
@@ -71,7 +73,7 @@ public class GameController : MonoBehaviour
 
         // DebugSpawnPoints(suspect.suspectClues[0]);
         uIController.InitializeDossier(allSuspects);
-        
+
 
     }
 
@@ -94,10 +96,10 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("All clues found.");
         }
-            OnScoreLimitReached();
+        OnScoreLimitReached();
 
     }
-    
+
 
     private void OnScoreLimitReached()
     {
@@ -105,7 +107,7 @@ public class GameController : MonoBehaviour
         {
             int numberToPress = i;
             numberToPress += 1;
-            Debug.Log("Suspect " + numberToPress+ ": " + allSuspects[i].suspectName);
+            Debug.Log("Suspect " + numberToPress + ": " + allSuspects[i].suspectName);
         }
 
         Debug.Log("Press the number of the suspect you want to pick.");
@@ -130,7 +132,7 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("You picked the wrong suspect");
         }
-        
+
     }
 
 
@@ -170,20 +172,10 @@ public class GameController : MonoBehaviour
     }
     void PlaceClue(ClueScriptableObject clue)
     {
-        int i;
-        List<Vector3> activeSpawnPoints;
-        if (clue.defaultSpawnPoints.Count() != 0)
-        {
-            activeSpawnPoints = clue.defaultSpawnPoints;
-        }
-        else
-        {
-            activeSpawnPoints = spawnPoints;
-        }
-        i = UnityEngine.Random.Range(0, clue.defaultSpawnPoints.Count());
 
+        Vector3 spawnPoint = GetSpawnPointFromRandomZone();
 
-        GameObject currentClue = Instantiate(clue.model, activeSpawnPoints[i], Quaternion.identity);
+        GameObject currentClue = Instantiate(clue.model, spawnPoint, Quaternion.identity);
         Clue clueObject = currentClue.GetComponent<Clue>();
         if (clueObject != null)
         {
@@ -194,6 +186,22 @@ public class GameController : MonoBehaviour
             Debug.LogWarning($"No clue script found on clue prefab {clue.name}");
         }
         currentClue.name = clue.clueName;
-        activeSpawnPoints.RemoveAt(i);
+    }
+    private Vector3 GetSpawnPointFromRandomZone()
+    {
+        bool cluePlaced = false;
+        while (!cluePlaced)
+        {
+            int i = Random.Range(0, zones.transform.childCount);
+            Zone zone = zones.transform.GetChild(i).GetComponent<Zone>();
+            if (zone.AddClueToZone())
+            {
+                return zone.getSpawnPoint();
+            }
+            
+        }
+        Debug.LogWarning("Could not find a spawn point");
+        return new Vector3(0, 0, 0);
     }
 }
+
