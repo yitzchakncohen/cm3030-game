@@ -15,3 +15,5 @@ MonoBehaviour:
   clueName: Grease marks
   model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
   description: 
+  validSpawnZones:
+  - {fileID: 0}

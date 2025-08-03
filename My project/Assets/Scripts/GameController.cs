@@ -182,6 +182,10 @@ public class GameController : MonoBehaviour
         }
         i = UnityEngine.Random.Range(0, clue.defaultSpawnPoints.Count());
 
+<<<<<<< Updated upstream
+=======
+        Vector3 spawnPoint = GetSpawnPointFromRandomZone(clue);
+>>>>>>> Stashed changes
 
         GameObject currentClue = Instantiate(clue.model, activeSpawnPoints[i], Quaternion.identity);
         Clue clueObject = currentClue.GetComponent<Clue>();
@@ -194,6 +198,33 @@ public class GameController : MonoBehaviour
             Debug.LogWarning($"No clue script found on clue prefab {clue.name}");
         }
         currentClue.name = clue.clueName;
+<<<<<<< Updated upstream
         activeSpawnPoints.RemoveAt(i);
+=======
+    }
+    private Vector3 GetSpawnPointFromRandomZone(ClueScriptableObject clue)
+    {
+        bool cluePlaced = false;
+        int x;
+        x = 0;
+        while (!cluePlaced)
+        {
+            x++;
+            int i = Random.Range(0, zones.transform.childCount);
+            Zone zone = zones.transform.GetChild(i).GetComponent<Zone>();
+            if (zone.AddClueToZone(clue.validSpawnZones))
+            {
+                return zone.getSpawnPoint();
+
+            }
+            if (x == 10)
+            {
+                break;
+            }
+
+        }
+        Debug.LogWarning("Could not find a spawn point");
+        return new Vector3(0, 0, 0);
+>>>>>>> Stashed changes
     }
 }

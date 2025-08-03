@@ -10,5 +10,5 @@ public class ClueScriptableObject : ScriptableObject
 
     public string description;
 
-    public List<Vector3> defaultSpawnPoints;
+    [SerializeField] public List<string> validSpawnZones;
 }
