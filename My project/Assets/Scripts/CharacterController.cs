@@ -53,6 +53,7 @@ public class CharacterController : MonoBehaviour
         inputManager.OnJumpInput -= InputManager_OnJumpInput;
         inputManager.OnGrabInputDown -= InputManager_OnGrabInputDown;
         inputManager.OnGrabInputUp -= InputManager_OnGrabInputUp;
+
     }
 
     private void FixedUpdate()
@@ -180,7 +181,7 @@ public class CharacterController : MonoBehaviour
         grabbedPickup.transform.SetParent(hand);
         grabbedPickup.transform.position = hand.position;
     }
-    
+
     private void InputManager_OnGrabInputUp()
     {
         if (grabbedPickup == null) return;
@@ -188,4 +189,8 @@ public class CharacterController : MonoBehaviour
         grabbedPickup.Reset();
         grabbedPickup = null;
     }
+
+
+    
+
 }
