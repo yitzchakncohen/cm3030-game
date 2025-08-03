@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private UIController uIController;
 
     List<ClueScriptableObject> activeClues;
 
@@ -36,7 +34,7 @@ public class GameController : MonoBehaviour
 
         player = GameObject.Find("Player");
 
-        InputManager inputManager =player.GetComponent<InputManager>();
+        InputManager inputManager = player.GetComponent<InputManager>();
         inputManager.OnSuspectSelectInput += GameController_onSuspectSelectInput;
 
         //
@@ -57,7 +55,8 @@ public class GameController : MonoBehaviour
         // Debug.Log("Selecting" + redHerrings.ToString() + " red herrings.");
         for (var i = 0; i < redHerrings; i++)
         {
-            if(activeSuspects.Count() ==0){
+            if (activeSuspects.Count() == 0)
+            {
                 Debug.Log("No suspects remaining to select red herrings from.");
                 break;
             }
@@ -71,6 +70,8 @@ public class GameController : MonoBehaviour
         }
 
         // DebugSpawnPoints(suspect.suspectClues[0]);
+        uIController.InitializeDossier(allSuspects);
+        
 
     }
 
@@ -158,7 +159,6 @@ public class GameController : MonoBehaviour
 
     private SuspectScriptableObject PickRandomSuspect()
     {
-        Debug.Log(activeSuspects.Count());
         int x = UnityEngine.Random.Range(0, activeSuspects.Count());
         SuspectScriptableObject suspect = Instantiate(activeSuspects[x]);
         // (“Scriptable Objects change thier values during run time and these persist - Unity Engine,” 2024. https://discussions.unity.com/t/scriptable-objects-change-thier-values-during-run-time-and-these-persist/1507422) 
@@ -184,6 +184,15 @@ public class GameController : MonoBehaviour
 
 
         GameObject currentClue = Instantiate(clue.model, activeSpawnPoints[i], Quaternion.identity);
+        Clue clueObject = currentClue.GetComponent<Clue>();
+        if (clueObject != null)
+        {
+            clueObject.Init(clue);
+        }
+        else
+        {
+            Debug.LogWarning($"No clue script found on clue prefab {clue.name}");
+        }
         currentClue.name = clue.clueName;
         activeSpawnPoints.RemoveAt(i);
     }

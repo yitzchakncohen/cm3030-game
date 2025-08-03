@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48354bc246d89e48a1baf0eb6b5e6ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointsFile: {fileID: 4900000, guid: 6781e74fc2c643346a577a6f7074b615, type: 3}
+  uIController: {fileID: 1230300914}
   spawnPoints:
   - {x: -73, y: 0.5, z: -64}
   - {x: -73, y: 0.5, z: -57}
