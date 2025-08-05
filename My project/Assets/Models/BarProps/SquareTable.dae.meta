@@ -1,20 +1,20 @@
 fileFormatVersion: 2
-guid: 58029078ad80eac4993a755bab37f842
+guid: fa7823e922884af48b57117cd16ab304
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: WoodenStoolBacked_Wood
+    2100000: SquareTable
     2300000: //RootNode
     3300000: //RootNode
-    4300000: WoodenStoolBacked_Wood
+    4300000: SquareTable
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: WoodenStoolBacked_Wood
-    second: {fileID: 2100000, guid: 9d6aed47bacb33a47ab9341aa788ae69, type: 2}
+      name: SquareTable
+    second: {fileID: 2100000, guid: f06e6421f23d268478656e72db1acfc7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -96,10 +96,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 137130
-  packageName: BarProps
-  packageVersion: 1.0
-  assetPath: Assets/BarProps/Prefabs/WoodenStoolBacked.dae
-  uploadId: 312948
