@@ -24,6 +24,9 @@ public class GameController : MonoBehaviour
 
     private static GameObject player;
 
+    public event System.Action GameStarted;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,6 +41,7 @@ public class GameController : MonoBehaviour
 
         InputManager inputManager = player.GetComponent<InputManager>();
         inputManager.OnSuspectSelectInput += GameController_onSuspectSelectInput;
+        GameStarted += inputManager.GameStarted;
 
         //
         ClueScanner clueScanner = player.GetComponent<ClueScanner>();
@@ -161,7 +165,7 @@ public class GameController : MonoBehaviour
 
     private SuspectScriptableObject PickRandomSuspect()
     {
-        int x = UnityEngine.Random.Range(0, activeSuspects.Count());
+        int x = Random.Range(0, activeSuspects.Count());
         SuspectScriptableObject suspect = Instantiate(activeSuspects[x]);
         // (“Scriptable Objects change thier values during run time and these persist - Unity Engine,” 2024. https://discussions.unity.com/t/scriptable-objects-change-thier-values-during-run-time-and-these-persist/1507422) 
         //remove them from the list so we can pick clues from other suspects
@@ -195,7 +199,7 @@ public class GameController : MonoBehaviour
         while (!cluePlaced)
         {
             x++;
-            int i = Random.Range(0, zones.transform.childCount);
+            int i = UnityEngine.Random.Range(0, zones.transform.childCount);
             Zone zone = zones.transform.GetChild(i).GetComponent<Zone>();
             if (zone.AddClueToZone(clue.validSpawnZones))
             {
@@ -212,5 +216,6 @@ public class GameController : MonoBehaviour
         x = 0;
         return new Vector3(0, 0, 0);
     }
+
 }
 
