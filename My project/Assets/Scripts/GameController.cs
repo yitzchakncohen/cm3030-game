@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameController : MonoBehaviour
@@ -8,7 +10,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private UIController uIController;
 
 
-    List<ClueScriptableObject> activeClues;
+    List<ClueScriptableObject> cluesToFind;
 
     // public TextAsset spawnPointsFile;
     [SerializeField] private GameObject zones;
@@ -20,10 +22,10 @@ public class GameController : MonoBehaviour
     private SuspectScriptableObject murderer;
 
     private List<ClueScriptableObject> foundClues;
-    private static InputManager inputManager;
 
-    private static GameObject player;
+    [SerializeField] private GameObject player;
 
+    private int totalClues;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,10 +36,8 @@ public class GameController : MonoBehaviour
         SuspectScriptableObject suspect = PickRandomSuspect();
         murderer = Instantiate(suspect);
 
-        player = GameObject.Find("Player");
-
         InputManager inputManager = player.GetComponent<InputManager>();
-        inputManager.OnSuspectSelectInput += GameController_onSuspectSelectInput;
+        inputManager.OnSuspectSelectMenuInput += uIController.GameEnded;
 
         //
         ClueScanner clueScanner = player.GetComponent<ClueScanner>();
@@ -49,8 +49,9 @@ public class GameController : MonoBehaviour
 
         int redHerrings = UnityEngine.Random.Range(1, 4);
         int numOfClues = UnityEngine.Random.Range(3, 5);
+        totalClues = redHerrings + numOfClues;
 
-        activeClues = suspect.pickRandomClues(numOfClues);
+        cluesToFind = suspect.pickRandomClues(numOfClues);
 
 
         //TODO - add the red herrings code.
@@ -63,10 +64,10 @@ public class GameController : MonoBehaviour
                 break;
             }
             suspect = PickRandomSuspect();
-            activeClues.Add(suspect.pickRandomClue());
+            cluesToFind.Add(suspect.pickRandomClue());
         }
 
-        foreach (ClueScriptableObject clue in activeClues)
+        foreach (ClueScriptableObject clue in cluesToFind)
         {
             PlaceClue(clue);
         }
@@ -84,56 +85,48 @@ public class GameController : MonoBehaviour
 
         // Adapted from a StackOverflow answer from Amritpal Singh in 2012 and edited by Peter Mortensen in 2016
         // https://stackoverflow.com/a/9854954
-        ClueScriptableObject scannedClue = activeClues.Find(item => item.clueName == clue.transform.parent.name);
-        Debug.Log("Picked up new clue: " + scannedClue.clueName);
+        ClueScriptableObject scannedClue = cluesToFind.Find(item => item.clueName == clue.gameObject.transform.parent.name);
 
         foundClues.Add(scannedClue);
-        activeClues.Remove(scannedClue);
+        cluesToFind.Remove(scannedClue);
 
         Debug.Log("Clues found:" + foundClues.Count);
 
-        if (activeClues.Count == 0)
+        if (cluesToFind.Count == 0)
         {
             Debug.Log("All clues found.");
+            uIController.GameEnded();
         }
-        OnScoreLimitReached();
-
     }
 
 
-    private void OnScoreLimitReached()
+ 
+
+    public List<string> OnSuspectSelect(string input)
     {
-        for (int i = 0; i < allSuspects.Count(); i++)
+        List<string> results = new();
+        if (input == murderer.suspectName)
         {
-            int numberToPress = i;
-            numberToPress += 1;
-            Debug.Log("Suspect " + numberToPress + ": " + allSuspects[i].suspectName);
-        }
+            results.Add("You got the right suspect!");
 
-        Debug.Log("Press the number of the suspect you want to pick.");
-
-    }
-
-    private void GameController_onSuspectSelectInput(int input)
-    {
-        if (foundClues.Count() == 0)
-        {
-            Debug.Log("No clues found. Skipping");
-            return;
-        }
-        Debug.Log("User selected a suspect.");
-        Debug.Log(input);
-        SuspectScriptableObject selectedSuspect = allSuspects[input - 1];
-        if (selectedSuspect.suspectName == murderer.suspectName)
-        {
-            Debug.Log("Selected the right suspect! You win!");
         }
         else
         {
-            Debug.Log("You picked the wrong suspect");
+            results.Add("You got the wrong suspect.");
         }
 
+        results.Add("The killer was " + murderer.suspectName);
+        results.Add($"You got {foundClues.Count()} out of {totalClues} clues.");
+        results.Add($"It took you {Time.time} seconds.");
+        results.Add("Score: 100");
+
+        
+        return results;
+
+
     }
+
+
 
 
     private void DebugSpawnPoints(ClueScriptableObject clue)
@@ -195,7 +188,7 @@ public class GameController : MonoBehaviour
         while (!cluePlaced)
         {
             x++;
-            int i = Random.Range(0, zones.transform.childCount);
+            int i = UnityEngine.Random.Range(0, zones.transform.childCount);
             Zone zone = zones.transform.GetChild(i).GetComponent<Zone>();
             if (zone.AddClueToZone(clue.validSpawnZones))
             {
@@ -212,5 +205,11 @@ public class GameController : MonoBehaviour
         x = 0;
         return new Vector3(0, 0, 0);
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("test");
+    }
+
 }
 

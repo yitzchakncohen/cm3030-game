@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static PlayerActions;
@@ -15,8 +16,9 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     public event Action OnScanInputDown;
     public event Action OnScanInputUp;
     public event Action OnShowNotesInput;
-    public event Action<int> OnSuspectSelectInput;
+    public event Action OnSuspectSelectMenuInput;
 
+    private bool HasGameStarted = false;
     private PlayerActions playerActions;
 
     private void OnEnable()
@@ -26,8 +28,12 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
             playerActions = new PlayerActions();
             playerActions.CharacterController.SetCallbacks(this);
         }
-        playerActions.Enable();
-        Cursor.lockState = CursorLockMode.Locked;
+        if (HasGameStarted)
+        {
+            playerActions.Enable();
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
     }
 
     private void OnDisable()
@@ -99,15 +105,32 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
             OnShowNotesInput?.Invoke();
         }
     }
-    
+
     public void OnSuspectSelect(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             // adapted from a Unity answer from MikeM1970: 
             // https://discussions.unity.com/t/getting-number-keys-value-with-new-unity-input-system/232960/3
-            int.TryParse(context.control.name,out int x);
-            OnSuspectSelectInput?.Invoke(x);
+
+            
+                OnSuspectSelectMenuInput?.Invoke();
+            
         }
+    }
+
+    public void GameStarted()
+    {
+        Camera.main.GetComponent<Animator>().SetTrigger("StartGame");
+        HasGameStarted = true;
+
+    }
+
+    public void AnimationEnded()
+    {
+        Debug.Log("Animation ended.");
+        HasGameStarted = true;
+        OnEnable();
+        
     }
 }

@@ -1,15 +1,33 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] private ClueScanner clueScanner;
     [SerializeField] private Dossier dossier;
 
+    [SerializeField] private GameObject startMenu;
+    [SerializeField] private GameObject suspectSelectMenu;
+    [SerializeField] private GameObject clueHolder;
+    [SerializeField] private GameObject clueText;
+    [SerializeField] private GameObject suspectHolder;
+    [SerializeField] private GameObject suspectButton;
+    [SerializeField] private GameObject gameControllerObject;
+    private GameController gameController;
+
+    [SerializeField] private GameObject eventSystem;
+    [SerializeField] private GameObject endGameMenu;
+
+    private List<String> results;
+
     private void Start()
     {
         clueScanner.OnClueScanned += ClueScanner_OnClueScanned;
+        gameController = gameControllerObject.GetComponent<GameController>();
     }
 
     private void OnDestroy()
@@ -25,5 +43,54 @@ public class UIController : MonoBehaviour
     private void ClueScanner_OnClueScanned(Clue clue)
     {
         dossier.AddClue(clue.ClueScriptableObject);
+        GameObject clueObject = Instantiate(clueText, clueHolder.transform);
+        clueObject.name = clue.gameObject.transform.parent.name;
+        clueObject.GetComponent<TextMeshProUGUI>().text = clue.gameObject.transform.parent.name;
+
     }
+
+
+    public void GameStarted()
+    {
+
+        startMenu.GetComponent<Animator>().SetTrigger("GameStarted");
+
+    }
+
+    public void GameEnded()
+    {
+        Debug.Log("uicontroller game ended");
+        suspectSelectMenu.SetActive(true);
+        foreach (SuspectScriptableObject suspect in gameController.allSuspects)
+        {
+            GameObject newButton = Instantiate(suspectButton, suspectHolder.transform);
+            newButton.GetComponentInChildren<TextMeshProUGUI>().text = suspect.suspectName;
+            newButton.name = suspect.suspectName;
+
+            // learnt how to do this from Unity documentation: https://docs.unity3d.com/2018.3/Documentation/ScriptReference/UI.Button-onClick.html
+            newButton.GetComponent<Button>().onClick.AddListener(() => SuspectSelected(suspect));
+        }
+
+        suspectHolder.transform.GetChild(1).gameObject.GetComponent<Button>().Select();
+    }
+
+    private void SuspectSelected(SuspectScriptableObject suspect)
+    {
+        results = gameController.OnSuspectSelect(suspect.suspectName);
+        endGameMenu.SetActive(true);
+        suspectSelectMenu.SetActive(false);
+        endGameMenu.transform.GetChild(endGameMenu.transform.childCount - 1).gameObject.GetComponent<Button>().Select();
+
+        endGameMenu.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = results[0];
+        endGameMenu.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = results[1];
+
+        Transform scoringTransform = endGameMenu.transform.GetChild(3);
+        for (int i = 0; i < scoringTransform.childCount; i++)
+        {
+            scoringTransform.GetChild(i).GetComponent<TextMeshProUGUI>().text = results[i+2];
+        }
+        
+    }
+    
+    
 }
