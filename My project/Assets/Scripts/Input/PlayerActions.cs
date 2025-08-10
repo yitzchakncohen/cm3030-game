@@ -329,6 +329,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""SuspectSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d56fdc2-6c23-4fa2-bb68-9e71b07493e1"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SuspectSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static PlayerActions;
@@ -15,7 +16,7 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
     public event Action OnScanInputDown;
     public event Action OnScanInputUp;
     public event Action OnShowNotesInput;
-    public event Action<int> OnSuspectSelectInput;
+    public event Action OnSuspectSelectMenuInput;
 
     private bool HasGameStarted = false;
     private PlayerActions playerActions;
@@ -111,8 +112,10 @@ public class InputManager : MonoBehaviour, ICharacterControllerActions
         {
             // adapted from a Unity answer from MikeM1970: 
             // https://discussions.unity.com/t/getting-number-keys-value-with-new-unity-input-system/232960/3
-            int.TryParse(context.control.name, out int x);
-            OnSuspectSelectInput?.Invoke(x);
+
+            
+                OnSuspectSelectMenuInput?.Invoke();
+            
         }
     }
 
