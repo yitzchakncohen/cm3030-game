@@ -20,11 +20,8 @@ public class GameController : MonoBehaviour
     private SuspectScriptableObject murderer;
 
     private List<ClueScriptableObject> foundClues;
-    private static InputManager inputManager;
-
     private static GameObject player;
 
-    public event System.Action GameStarted;
 
 
 
@@ -41,18 +38,17 @@ public class GameController : MonoBehaviour
 
         InputManager inputManager = player.GetComponent<InputManager>();
         inputManager.OnSuspectSelectInput += GameController_onSuspectSelectInput;
-        GameStarted += inputManager.GameStarted;
 
         //
         ClueScanner clueScanner = player.GetComponent<ClueScanner>();
         clueScanner.OnClueScanned += OnClueScanned;
-        foundClues = new List<ClueScriptableObject>();
+        foundClues = new List<ClueScriptableObject>();  
 
         // Debug.Log(activeSuspects.Count());
 
 
-        int redHerrings = UnityEngine.Random.Range(1, 4);
-        int numOfClues = UnityEngine.Random.Range(3, 5);
+        int redHerrings = Random.Range(1, 4);
+        int numOfClues = Random.Range(3, 5);
 
         activeClues = suspect.pickRandomClues(numOfClues);
 
