@@ -27,6 +27,7 @@ Unity Packages
 	Game Input Controller Icons Free
 	Footsteps Mini Sound Pack
 	Free UI Soundpack
+	VR-ready PBR toilet - https://assetstore.unity.com/packages/3d/characters/vr-ready-pbr-toilet-116576
 
 freesound.org
 	City ambience.wav by chimerical -- https://freesound.org/s/106839/ -- License: Creative Commons 0
