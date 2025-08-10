@@ -24,8 +24,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Vector2 verticalLookClamp;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask pickupsLayer;
-    private Pickup grabbedPickup = null;
-    private Pickup targetPickup = null;
+    private Movable grabbedPickup = null;
+    private Movable targetPickup = null;
     private Vector2 moveInput;
     private Vector2 lookVector;
     private Vector3 headUpPosition;
@@ -59,7 +59,6 @@ public class CharacterController : MonoBehaviour
         inputManager.OnJumpInput -= InputManager_OnJumpInput;
         inputManager.OnGrabInputDown -= InputManager_OnGrabInputDown;
         inputManager.OnGrabInputUp -= InputManager_OnGrabInputUp;
-
     }
 
     private void FixedUpdate()
@@ -131,17 +130,18 @@ public class CharacterController : MonoBehaviour
 
     private void CheckForPickups()
     {
-        if (grabbedPickup != null) return;
+        if (grabbedPickup != null)
+            return;
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * pickupDistance, Color.red);
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, pickupDistance, pickupsLayer))
         {
-            if (hit.transform.TryGetComponent<Pickup>(out Pickup pickup))
+            if (hit.transform.TryGetComponent<Movable>(out Movable movable))
             {
-                if (pickup != targetPickup)
+                if (movable != targetPickup)
                 {
                     targetPickup?.Reset();
-                    targetPickup = pickup;
+                    targetPickup = movable;
                     targetPickup.Target();
                 }
             }
@@ -183,17 +183,16 @@ public class CharacterController : MonoBehaviour
 
     private void InputManager_OnGrabInputDown()
     {
-        if (targetPickup == null) return;
+        if (targetPickup == null)
+            return;
         grabbedPickup = targetPickup;
-        grabbedPickup.Grab();
-        grabbedPickup.transform.SetParent(hand);
-        grabbedPickup.transform.position = hand.position;
+        grabbedPickup.Grab(hand.transform);
     }
 
     private void InputManager_OnGrabInputUp()
     {
-        if (grabbedPickup == null) return;
-        grabbedPickup.transform.SetParent(null);
+        if (grabbedPickup == null)
+            return;
         grabbedPickup.Reset();
         grabbedPickup = null;
     }

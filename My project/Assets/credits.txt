@@ -11,6 +11,8 @@ Models
 
 	"mail hat" (https://skfb.ly/oPVEx) by TiesG is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
+	"Garbage bags" (https://skfb.ly/orDMJ) by DJMaesen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
 
 Unity Packages
 	Low Poly Drinking Glasses
@@ -21,6 +23,7 @@ Unity Packages
 	AllSkyFree
 	Low Poly Stylized Knife Pack
 	Low Poly Pistol Weapon Pack 1
+	PBR Dirty Dumpster
 	Game Input Controller Icons Free
 	Footsteps Mini Sound Pack
 	Free UI Soundpack
