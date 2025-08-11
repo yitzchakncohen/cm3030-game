@@ -21,3 +21,4 @@ Unity Packages
 	AllSkyFree
 	Low Poly Stylized Knife Pack
 	Low Poly Pistol Weapon Pack 1
+	Game Input Controller Icons Free

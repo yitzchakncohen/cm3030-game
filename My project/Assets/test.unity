@@ -1703,11 +1703,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global Volume
       objectReference: {fileID: 0}
-    - target: {fileID: 7062996978862460524, guid: 77d3a6be0b7832c4db89d7d41dfb0306,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5712,6 +5707,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1230300914}
+    - target: {fileID: 1736245120092541885, guid: 90d20772c6ef50f41b194754632c6869,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736245120092541885, guid: 90d20772c6ef50f41b194754632c6869,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736245120092541885, guid: 90d20772c6ef50f41b194754632c6869,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736245120092541885, guid: 90d20772c6ef50f41b194754632c6869,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2134436782779438698, guid: 90d20772c6ef50f41b194754632c6869,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5822,6 +5837,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2130961618}
+    - target: {fileID: 8747155237755197708, guid: 90d20772c6ef50f41b194754632c6869,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747155237755197708, guid: 90d20772c6ef50f41b194754632c6869,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747155237755197708, guid: 90d20772c6ef50f41b194754632c6869,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747155237755197708, guid: 90d20772c6ef50f41b194754632c6869,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
