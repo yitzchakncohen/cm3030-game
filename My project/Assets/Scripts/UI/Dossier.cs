@@ -1,18 +1,23 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Dossier : MonoBehaviour
 {
+    public event Action<SuspectScriptableObject> OnAccuseSuspect;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Overlay overlay;
 
     [SerializeField] private Button nextSuspectButton;
+    [SerializeField] private Button accuseSuspectButton;
 
     [SerializeField] private GameObject dossier;
     [SerializeField] private Transform clueHolder;
     [SerializeField] private ClueCell cluePrefab;
     [SerializeField] private SuspectCell suspectCell;
+    [SerializeField] private TMP_Text pageNumber;
     private List<SuspectScriptableObject> suspects;
     private int currentSuspect = 0;
 
@@ -20,13 +25,15 @@ public class Dossier : MonoBehaviour
     {
         dossier.SetActive(false);
         inputManager.OnShowNotesInput += InputManager_OnShowNotesInput;
-        nextSuspectButton.onClick.AddListener(OnNextSuspect);
+        nextSuspectButton.onClick.AddListener(OnNextSuspectClick);
+        accuseSuspectButton.onClick.AddListener(OnAccuseSuspectClick);
     }
 
     private void OnDestroy()
     {
         inputManager.OnShowNotesInput -= InputManager_OnShowNotesInput;
         nextSuspectButton.onClick.RemoveAllListeners();
+        accuseSuspectButton.onClick.RemoveAllListeners();
     }
 
     public void Init(List<SuspectScriptableObject> suspectsList)
@@ -45,10 +52,16 @@ public class Dossier : MonoBehaviour
         clueCell.Init(clue);
     }
 
-    private void OnNextSuspect()
+    private void OnNextSuspectClick()
     {
         currentSuspect = (currentSuspect + 1) % suspects.Count;
         suspectCell.Init(suspects[currentSuspect]);
+        pageNumber.text = $"{currentSuspect}/{suspects.Count}";
+    }
+
+    private void OnAccuseSuspectClick()
+    {
+        OnAccuseSuspect?.Invoke(suspects[currentSuspect]);
     }
 
     private void InputManager_OnShowNotesInput()

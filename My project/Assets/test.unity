@@ -892,6 +892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIController: {fileID: 1230300914}
+  dossier: {fileID: 1117815825}
   zones: {fileID: 641049424}
   spawnPoints:
   - {x: -73, y: 0.5, z: -64}

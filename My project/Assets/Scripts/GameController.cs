@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public event Action<SuspectScriptableObject> OnAccuseSuspect;
     [SerializeField] private UIController uIController;
+    [SerializeField] private Dossier dossier;
 
 
     List<ClueScriptableObject> cluesToFind;
@@ -75,7 +77,12 @@ public class GameController : MonoBehaviour
         // DebugSpawnPoints(suspect.suspectClues[0]);
         uIController.InitializeDossier(allSuspects);
 
+        dossier.OnAccuseSuspect += Dossier_OnAccuseSuspect;
+    }
 
+    private void OnDestroy()
+    {
+        dossier.OnAccuseSuspect -= Dossier_OnAccuseSuspect;
     }
 
     // Update is called once per frame
@@ -204,6 +211,11 @@ public class GameController : MonoBehaviour
         Debug.LogWarning("Could not find a spawn point");
         x = 0;
         return new Vector3(0, 0, 0);
+    }
+
+    private void Dossier_OnAccuseSuspect(SuspectScriptableObject suspect)
+    {
+        OnAccuseSuspect?.Invoke(suspect);
     }
 
     public void RestartGame()
