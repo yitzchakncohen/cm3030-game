@@ -1,14 +1,28 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Overlay : MonoBehaviour
 {
+    [SerializeField] private InputManager inputManager;
     [SerializeField] private ClueScanner clueScanner;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private Button doneButton;
 
     [SerializeField] private RectTransform crosshair;
     [SerializeField] private RectTransform scanClue;
     [SerializeField] private RectTransform interact;
     [SerializeField] private RectTransform dossier;
+    [SerializeField] private RectTransform controls;
+
+    private void Start()
+    {
+        doneButton.onClick.AddListener(OnDoneButtonClick);
+    }
+
+    private void OnDestroy()
+    {
+        doneButton.onClick.RemoveAllListeners();
+    }
 
     private void Update()
     {
@@ -66,7 +80,7 @@ public class Overlay : MonoBehaviour
         scanClue.position = screenPoint;
         if (!scanClue.gameObject.activeSelf)
         {
-            scanClue.gameObject.SetActive(true);            
+            scanClue.gameObject.SetActive(true);
         }
     }
 
@@ -74,7 +88,7 @@ public class Overlay : MonoBehaviour
     {
         if (scanClue.gameObject.activeSelf)
         {
-            scanClue.gameObject.SetActive(false);            
+            scanClue.gameObject.SetActive(false);
         }
     }
 
@@ -92,7 +106,17 @@ public class Overlay : MonoBehaviour
     {
         if (interact.gameObject.activeSelf)
         {
-            interact.gameObject.SetActive(false);            
+            interact.gameObject.SetActive(false);
         }
+    }
+    
+    public void OnControlsButtonClick()
+    {
+        controls.gameObject.SetActive(true);
+    }
+
+    private void OnDoneButtonClick()
+    {
+        controls.gameObject.SetActive(false);
     }
 }

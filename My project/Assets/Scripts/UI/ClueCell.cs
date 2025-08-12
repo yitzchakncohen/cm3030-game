@@ -11,6 +11,6 @@ public class ClueCell : MonoBehaviour
     {
         this.clue = clue;
         clueDescription.text = clue.description;
-        clueName.text = clue.name;
+        clueName.text = clue.clueName;
     }
 }
