@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -28,11 +27,13 @@ public class UIController : MonoBehaviour
     {
         clueScanner.OnClueScanned += ClueScanner_OnClueScanned;
         gameController = gameControllerObject.GetComponent<GameController>();
+        gameController.OnAccuseSuspect += GameController_OnAccuseSuspect;
     }
 
     private void OnDestroy()
     {
         clueScanner.OnClueScanned -= ClueScanner_OnClueScanned;
+        gameController.OnAccuseSuspect -= GameController_OnAccuseSuspect;
     }
 
     public void InitializeDossier(List<SuspectScriptableObject> suspects)
@@ -73,6 +74,11 @@ public class UIController : MonoBehaviour
 
         suspectHolder.transform.GetChild(1).gameObject.GetComponent<Button>().Select();
     }
+    
+    private void GameController_OnAccuseSuspect(SuspectScriptableObject suspect)
+    {
+        SuspectSelected(suspect);
+    }
 
     private void SuspectSelected(SuspectScriptableObject suspect)
     {
@@ -87,9 +93,9 @@ public class UIController : MonoBehaviour
         Transform scoringTransform = endGameMenu.transform.GetChild(3);
         for (int i = 0; i < scoringTransform.childCount; i++)
         {
-            scoringTransform.GetChild(i).GetComponent<TextMeshProUGUI>().text = results[i+2];
+            scoringTransform.GetChild(i).GetComponent<TextMeshProUGUI>().text = results[i + 2];
         }
-        
+
     }
     
     

@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 763560506132109917}
   - component: {fileID: 3095049082613966739}
   - component: {fileID: 4935058482515403818}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 2447071417523423501}
   - component: {fileID: 7260705167011052790}
   - component: {fileID: 7350755902614842080}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

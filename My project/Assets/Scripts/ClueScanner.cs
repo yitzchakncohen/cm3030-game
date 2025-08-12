@@ -4,6 +4,8 @@ using UnityEngine;
 public class ClueScanner : MonoBehaviour
 {
     public event Action<Clue> OnClueScanned;
+    public Clue TargetClue => targetClue;
+    public bool IsScanning => isScanning;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private LayerMask pickupsLayer;
     [SerializeField] private GameObject magnifyingGlass;

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    public Pickup GrabbedPickup => grabbedPickup;
+    public Pickup TargetPickup => targetPickup;
     private InputManager inputManager;
     private Rigidbody rigidBody;
     [SerializeField] private Transform head;
