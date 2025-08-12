@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Dossier : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private Overlay overlay;
 
     [SerializeField] private Button nextSuspectButton;
 
@@ -60,5 +59,17 @@ public class Dossier : MonoBehaviour
     private void ToggleDossier()
     {
         dossier.SetActive(!dossier.activeSelf);
+        if (dossier.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            overlay.HideCrosshair();
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            overlay.ShowCrosshair();
+        }
     }
 }
