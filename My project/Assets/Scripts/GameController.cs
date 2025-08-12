@@ -169,7 +169,7 @@ public class GameController : MonoBehaviour
         Vector3 spawnPoint = GetSpawnPointFromRandomZone(clue);
 
         GameObject currentClue = Instantiate(clue.model, spawnPoint, Quaternion.identity);
-        Clue clueObject = currentClue.GetComponent<Clue>();
+        Clue clueObject = currentClue.GetComponentInChildren<Clue>();
         if (clueObject != null)
         {
             clueObject.Init(clue);
