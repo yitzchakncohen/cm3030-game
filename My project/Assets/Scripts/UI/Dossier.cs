@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Dossier : MonoBehaviour
 {
+    public event Action OnOpen;
+    public event Action OnClose;
     public event Action<SuspectScriptableObject> OnAccuseSuspect;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Overlay overlay;
@@ -77,12 +79,14 @@ public class Dossier : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             overlay.HideCrosshair();
+            OnOpen?.Invoke();
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             overlay.ShowCrosshair();
+            OnClose?.Invoke();
         }
     }
 }

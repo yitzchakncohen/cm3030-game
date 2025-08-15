@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     public event Action<SuspectScriptableObject> OnAccuseSuspect;
     [SerializeField] private UIController uIController;
+    [SerializeField] private CharacterController characterController;
     [SerializeField] private Dossier dossier;
 
 
@@ -78,11 +79,15 @@ public class GameController : MonoBehaviour
         uIController.InitializeDossier(allSuspects);
 
         dossier.OnAccuseSuspect += Dossier_OnAccuseSuspect;
+        dossier.OnOpen += Dossier_OnOpen;
+        dossier.OnClose += Dossier_OnClose;
     }
 
     private void OnDestroy()
     {
         dossier.OnAccuseSuspect -= Dossier_OnAccuseSuspect;
+        dossier.OnOpen -= Dossier_OnOpen;
+        dossier.OnClose -= Dossier_OnClose;
     }
 
     // Update is called once per frame
@@ -216,6 +221,16 @@ public class GameController : MonoBehaviour
     private void Dossier_OnAccuseSuspect(SuspectScriptableObject suspect)
     {
         OnAccuseSuspect?.Invoke(suspect);
+    }
+
+    private void Dossier_OnOpen()
+    {
+        characterController.ToggleLook(false);
+    }
+
+    private void Dossier_OnClose()
+    {
+        characterController.ToggleLook(true);
     }
 
     public void RestartGame()

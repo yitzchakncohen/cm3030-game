@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -29,6 +30,7 @@ public class CharacterController : MonoBehaviour
     private Vector2 lookVector;
     private Vector3 headUpPosition;
     private bool isGrounded = false;
+    private bool isLookEnabled = true;
 
     private void Awake()
     {
@@ -77,6 +79,8 @@ public class CharacterController : MonoBehaviour
     /* --- https://community.gamedev.tv/t/unity-fps-camera-rotation/229608/3 --- */
     private void Look()
     {
+        if (!isLookEnabled) return;
+        
         //Horizontal Rotation in quaternions
         float horizontalRotationDelta = lookVector.x * cameraHorizontalSensitivity * Time.deltaTime;
         head.localRotation *= Quaternion.AngleAxis(horizontalRotationDelta, Vector3.up);
@@ -194,7 +198,9 @@ public class CharacterController : MonoBehaviour
         grabbedPickup = null;
     }
 
-
-    
+    public void ToggleLook(bool enabled)
+    {
+        isLookEnabled = enabled;
+    }    
 
 }
