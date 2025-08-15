@@ -5,6 +5,8 @@ public class CharacterController : MonoBehaviour
 {
     public Pickup GrabbedPickup => grabbedPickup;
     public Pickup TargetPickup => targetPickup;
+    public bool IsGrounded => isGrounded;
+    public bool IsMoving => rigidBody.linearVelocity.sqrMagnitude > 0.1f;
     private InputManager inputManager;
     private Rigidbody rigidBody;
     [SerializeField] private Transform head;
