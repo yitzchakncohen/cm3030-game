@@ -7873,6 +7873,11 @@ PrefabInstance:
       propertyPath: characterController
       value: 
       objectReference: {fileID: 1930891698}
+    - target: {fileID: 4508408905941224992, guid: 8c0f59a2e40078a44b4ea018c030a9c3,
+        type: 3}
+      propertyPath: 'footStepSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a8b6c6ef7c6c2bc438272bdf63c5210b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
