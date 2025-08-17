@@ -13,6 +13,8 @@ public class Overlay : MonoBehaviour
     [SerializeField] private RectTransform interact;
     [SerializeField] private RectTransform dossier;
     [SerializeField] private RectTransform controls;
+    [SerializeField] private GameObject scanProgress;
+    [SerializeField] private Image scanProgressBar;
 
     private void Start()
     {
@@ -51,6 +53,17 @@ public class Overlay : MonoBehaviour
         else
         {
             HideScanClue();
+        }
+
+        if (clueScanner.IsScanning && clueScanner.TargetClue != null)
+        {
+            if (!scanProgress.activeSelf) scanProgress.SetActive(true);
+
+            scanProgressBar.fillAmount = clueScanner.ScanProgress;
+        }
+        else
+        {
+            scanProgress.SetActive(false);
         }
     }
 

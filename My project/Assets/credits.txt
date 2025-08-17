@@ -23,6 +23,7 @@ Unity Packages
 	Low Poly Pistol Weapon Pack 1
 	Game Input Controller Icons Free
 	Footsteps Mini Sound Pack
+	Free UI Soundpack
 
 freesound.org
 	City ambience.wav by chimerical -- https://freesound.org/s/106839/ -- License: Creative Commons 0
