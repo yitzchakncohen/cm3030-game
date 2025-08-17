@@ -50,8 +50,8 @@ public class GameController : MonoBehaviour
         // Debug.Log(activeSuspects.Count());
 
 
-        int redHerrings = UnityEngine.Random.Range(1, 4);
-        int numOfClues = UnityEngine.Random.Range(3, 5);
+        int redHerrings = 2;
+        int numOfClues = 4;
         totalClues = redHerrings + numOfClues;
 
         cluesToFind = suspect.pickRandomClues(numOfClues);
