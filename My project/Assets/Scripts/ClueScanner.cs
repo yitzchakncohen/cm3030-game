@@ -6,6 +6,7 @@ public class ClueScanner : MonoBehaviour
     public event Action<Clue> OnClueScanned;
     public Clue TargetClue => targetClue;
     public bool IsScanning => isScanning;
+    public float ScanProgress => timer / clueScanTime;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private LayerMask pickupsLayer;
     [SerializeField] private GameObject magnifyingGlass;
