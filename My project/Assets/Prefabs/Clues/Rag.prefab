@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rag
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef56b53e6f6d3d54cb7d889cd9e5720d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
