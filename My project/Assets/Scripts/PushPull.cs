@@ -16,12 +16,11 @@ public class PushPull : Movable
         base.Start();
         inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
 
-        inputManager.OnMoveInput += InputManager_OnMoveInput;
+        inputManager.OnMoveInput += OnMoveInput;
         joint = GetComponent<FixedJoint>();
-        joint.connectedBody = rigidBody;
     }
 
-    private void InputManager_OnMoveInput(Vector2 moveInput)
+    private void OnMoveInput(Vector2 moveInput)
     {
         moveVector = moveInput.normalized;
     }

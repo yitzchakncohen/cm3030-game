@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public Pickup GrabbedPickup => grabbedPickup;
-    public Pickup TargetPickup => targetPickup;
+    public Movable GrabbedPickup => grabbedPickup;
+    public Movable TargetPickup => targetMovable;
     public bool IsGrounded => isGrounded;
     public bool IsMoving => rigidBody.linearVelocity.sqrMagnitude > 0.1f;
     private InputManager inputManager;
@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask pickupsLayer;
     private Movable grabbedPickup = null;
-    private Movable targetPickup = null;
+    private Movable targetMovable = null;
     private Vector2 moveInput;
     private Vector2 lookVector;
     private Vector3 headUpPosition;
@@ -138,18 +138,18 @@ public class CharacterController : MonoBehaviour
         {
             if (hit.transform.TryGetComponent<Movable>(out Movable movable))
             {
-                if (movable != targetPickup)
+                if (movable != targetMovable)
                 {
-                    targetPickup?.Reset();
-                    targetPickup = movable;
-                    targetPickup.Target();
+                    targetMovable?.Reset();
+                    targetMovable = movable;
+                    targetMovable.Target();
                 }
             }
         }
         else
         {
-            targetPickup?.Reset();
-            targetPickup = null;
+            targetMovable?.Reset();
+            targetMovable = null;
         }
     }
 
@@ -183,9 +183,9 @@ public class CharacterController : MonoBehaviour
 
     private void InputManager_OnGrabInputDown()
     {
-        if (targetPickup == null)
+        if (targetMovable == null)
             return;
-        grabbedPickup = targetPickup;
+        grabbedPickup = targetMovable;
         grabbedPickup.Grab(hand.transform);
     }
 
