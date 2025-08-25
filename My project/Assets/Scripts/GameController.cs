@@ -40,8 +40,7 @@ public class GameController : MonoBehaviour
         SuspectScriptableObject suspect = PickRandomSuspect();
         murderer = Instantiate(suspect);
 
-        InputManager inputManager = player.GetComponent<InputManager>();
-        inputManager.OnSuspectSelectMenuInput += uIController.GameEnded;
+        // InputManager inputManager = player.GetComponent<InputManager>();
 
         //
         ClueScanner clueScanner = player.GetComponent<ClueScanner>();
