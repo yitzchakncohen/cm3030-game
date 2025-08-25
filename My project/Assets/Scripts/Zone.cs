@@ -63,7 +63,7 @@ public class Zone : MonoBehaviour
         float x = Random.Range(minX, maxX);
         float z = Random.Range(minZ, maxZ);
 
-        return new Vector3(x, 0.5f, z);
+        return new Vector3(x, 0f, z);
     }
     
 }

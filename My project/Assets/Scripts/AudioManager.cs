@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource uiNoiseSource;
     [SerializeField] private AudioSource footStepSource;
     [SerializeField] private AudioSource playerSource;
+    [SerializeField] private AudioSource rainSource;
 
     [Header("Sound FX")]
     [SerializeField] private AudioClip[] footStepSounds;
@@ -18,10 +19,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip buttonClick;
     [SerializeField] private AudioClip clueScanning;
     [SerializeField] private AudioClip clueScanned;
+    [SerializeField] private AudioClip rainSound;
 
     [Header("Game References")]
     [SerializeField] private CharacterController characterController;
     [SerializeField] private ClueScanner clueScanner;
+    [SerializeField] private Rain rain;
 
     private Button[] buttons;
 
@@ -42,6 +45,8 @@ public class AudioManager : MonoBehaviour
         }
 
         clueScanner.OnClueScanned += OnClueScanned;
+        rain.OnRainStart += Rain_OnRainStart;
+        rain.OnRainStop += Rain_OnRainStop;
     }
 
     void OnDestroy()
@@ -52,6 +57,8 @@ public class AudioManager : MonoBehaviour
         }
 
         clueScanner.OnClueScanned -= OnClueScanned;
+        rain.OnRainStart += Rain_OnRainStart;
+        rain.OnRainStop += Rain_OnRainStop;
     }
 
     private void Update()
@@ -89,5 +96,19 @@ public class AudioManager : MonoBehaviour
     private void OnClueScanned(Clue clue)
     {
         playerSource.PlayOneShot(clueScanned);
+    }
+
+    private void Rain_OnRainStart()
+    {
+        rainSource.loop = true;
+        rainSource.clip = rainSound;
+        rainSource.Play();
+        ambientNoiseSource.volume = 1f;
+    }
+
+    private void Rain_OnRainStop()
+    {
+        rainSource.Stop();
+        ambientNoiseSource.volume = 0.3f;
     }
 }
