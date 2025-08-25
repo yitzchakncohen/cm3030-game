@@ -103,12 +103,6 @@ public class GameController : MonoBehaviour
         cluesToFind.Remove(scannedClue);
 
         Debug.Log("Clues found:" + foundClues.Count);
-
-        if (cluesToFind.Count == 0)
-        {
-            Debug.Log("All clues found.");
-            uIController.GameEnded();
-        }
     }
 
 
