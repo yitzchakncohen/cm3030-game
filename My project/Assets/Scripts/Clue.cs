@@ -46,7 +46,8 @@ public class Clue : MonoBehaviour
     public void SetScanned()
     {
         isScanned = true;
-        foreach (Material material in materials) material.SetFloat(GREY_LEVEL_PROPERTY, 0f);
-        scannedEffect.SetActive(true);
+        gameObject.SetActive(false);
+        // foreach (Material material in materials) material.SetFloat(GREY_LEVEL_PROPERTY, 0f);
+        // scannedEffect.SetActive(true);
     }
 }

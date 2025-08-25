@@ -198,6 +198,7 @@ public class GameController : MonoBehaviour
             Zone zone = zones.transform.GetChild(i).GetComponent<Zone>();
             if (zone.AddClueToZone(clue.validSpawnZones))
             {
+                Debug.Log($"Clue {clue.clueName} spawning in zone {zone.name}");
                 return zone.getSpawnPoint();
 
             }
