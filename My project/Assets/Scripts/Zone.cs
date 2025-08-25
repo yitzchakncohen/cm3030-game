@@ -6,11 +6,6 @@ public class Zone : MonoBehaviour
     [SerializeField] int maxNumberOfClues;
     [SerializeField] List<Vector3> spawnPoints;
     private int numOfClues;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
 
     /// <summary>
     /// Add a clue to the zone if the max number of clues in this zone has not been reached.
