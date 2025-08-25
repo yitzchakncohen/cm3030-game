@@ -5201,6 +5201,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fad04457e8f4b4197c4d70161ef8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1117815827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3003144463711512879, guid: 836330f190b2eb844805ea81ce8e9b9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1117815823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22786625a1bbc4548b3f183805221585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1134944545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14081,9 +14093,19 @@ PrefabInstance:
       objectReference: {fileID: 1702862279}
     - target: {fileID: 4508408905941224992, guid: 8c0f59a2e40078a44b4ea018c030a9c3,
         type: 3}
+      propertyPath: radio
+      value: 
+      objectReference: {fileID: 1117815827}
+    - target: {fileID: 4508408905941224992, guid: 8c0f59a2e40078a44b4ea018c030a9c3,
+        type: 3}
       propertyPath: rainSound
       value: 
       objectReference: {fileID: 8300000, guid: 244c34660cf5f614ebe42d807d60bbb8, type: 3}
+    - target: {fileID: 4508408905941224992, guid: 8c0f59a2e40078a44b4ea018c030a9c3,
+        type: 3}
+      propertyPath: radioSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f632c3e0da45c844e9c4c19fd9c847f9, type: 3}
     - target: {fileID: 4508408905941224992, guid: 8c0f59a2e40078a44b4ea018c030a9c3,
         type: 3}
       propertyPath: rainSource
@@ -14124,6 +14146,11 @@ PrefabInstance:
       propertyPath: footStepSource
       value: 
       objectReference: {fileID: 1117815824}
+    - target: {fileID: 4508408905941224992, guid: 8c0f59a2e40078a44b4ea018c030a9c3,
+        type: 3}
+      propertyPath: introRadioSequence
+      value: 
+      objectReference: {fileID: 8300000, guid: 67d37523d59a9034d94339cff5d2ba56, type: 3}
     - target: {fileID: 4508408905941224992, guid: 8c0f59a2e40078a44b4ea018c030a9c3,
         type: 3}
       propertyPath: characterController

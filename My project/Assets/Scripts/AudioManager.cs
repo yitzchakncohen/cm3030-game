@@ -20,11 +20,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip clueScanning;
     [SerializeField] private AudioClip clueScanned;
     [SerializeField] private AudioClip rainSound;
+    [SerializeField] private AudioClip radioSound;
+    [SerializeField] private AudioClip introRadioSequence;
 
     [Header("Game References")]
     [SerializeField] private CharacterController characterController;
     [SerializeField] private ClueScanner clueScanner;
     [SerializeField] private Rain rain;
+    [SerializeField] private Radio radio;
 
     private Button[] buttons;
 
@@ -47,6 +50,8 @@ public class AudioManager : MonoBehaviour
         clueScanner.OnClueScanned += OnClueScanned;
         rain.OnRainStart += Rain_OnRainStart;
         rain.OnRainStop += Rain_OnRainStop;
+        radio.OnPlayRadioNoise += Radio_OnPlayRadioNoise;
+        radio.OnPlayIntroVoiceSequence += Radio_OnPlayIntroVoideSequence;
     }
 
     void OnDestroy()
@@ -57,8 +62,10 @@ public class AudioManager : MonoBehaviour
         }
 
         clueScanner.OnClueScanned -= OnClueScanned;
-        rain.OnRainStart += Rain_OnRainStart;
-        rain.OnRainStop += Rain_OnRainStop;
+        rain.OnRainStart -= Rain_OnRainStart;
+        rain.OnRainStop -= Rain_OnRainStop;
+        radio.OnPlayRadioNoise -= Radio_OnPlayRadioNoise;
+        radio.OnPlayIntroVoiceSequence -= Radio_OnPlayIntroVoideSequence;
     }
 
     private void Update()
@@ -110,5 +117,15 @@ public class AudioManager : MonoBehaviour
     {
         rainSource.Stop();
         ambientNoiseSource.volume = 0.3f;
+    }
+
+    private void Radio_OnPlayRadioNoise()
+    {
+        playerSource.PlayOneShot(radioSound);
+    }
+
+    private void Radio_OnPlayIntroVoideSequence()
+    {
+        playerSource.PlayOneShot(introRadioSequence);
     }
 }
