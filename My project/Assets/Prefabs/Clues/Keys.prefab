@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderers:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4245627539066179677}
+  - {fileID: 4666227930167007775}
+  - {fileID: 3743303329786597813}
   scannedEffect: {fileID: 6897731345770027701}
 --- !u!65 &4954193757151994219
 BoxCollider:
@@ -4930,8 +4931,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5842816034990853851}
   - {fileID: 6594056674220021212}
@@ -5048,6 +5049,24 @@ PrefabInstance:
 --- !u!4 &1633892240053354199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3b2d4b048629c6645a3972548ff9e7ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1235808363000420668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3743303329786597813 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2509802017764886665, guid: 3b2d4b048629c6645a3972548ff9e7ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1235808363000420668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4245627539066179677 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6067185528594298527, guid: 3b2d4b048629c6645a3972548ff9e7ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1235808363000420668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4666227930167007775 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5901893356585517859, guid: 3b2d4b048629c6645a3972548ff9e7ab,
     type: 3}
   m_PrefabInstance: {fileID: 1235808363000420668}
   m_PrefabAsset: {fileID: 0}
