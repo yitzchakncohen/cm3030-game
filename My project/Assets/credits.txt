@@ -13,6 +13,9 @@ Models
 
 	"Garbage bags" (https://skfb.ly/orDMJ) by DJMaesen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
+	"Classic wine bottle with label" (https://skfb.ly/69GwA) by ilya.terekhin is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+	"Wine Bottle" (https://skfb.ly/W8Fp) by sotocodes is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 Unity Packages
 	Low Poly Drinking Glasses
@@ -44,3 +47,7 @@ https://assetstore.unity.com/packages/3d/vehicles/land/american-sedans-taxi-poli
 https://assetstore.unity.com/packages/3d/environments/urban/bricktown-assetpack-240479
 
 https://assetstore.unity.com/packages/2d/environments/neon-sprite-pack-131754
+
+Floor Tiles 06 - Rob Tuytel(Polyhaven) - https://polyhaven.com/a/floor_tiles_06
+
+Plastered Wall 04 - Rob Tuytel(Polyhaven) - https://polyhaven.com/a/plastered_wall_04
