@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6e0fece8ab8344eaae910429f08f14, type: 3}
   m_Name: Postman
   m_EditorClassIdentifier: 
-  suspectName: The postman
+  suspectName: The Postman
+  Description: 
   clues:
   - {fileID: 11400000, guid: dab6cf202a7a9d640a4b90685e31db24, type: 2}
   - {fileID: 11400000, guid: 273a7e4c8b99e614984316a9535ab198, type: 2}
