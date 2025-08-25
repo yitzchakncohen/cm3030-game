@@ -1014,6 +1014,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1771259308}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &312069488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6545978248195034709, guid: 7eea592efde29cb4198d89bfeec64a8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7451142076071262721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &326789314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 71d9f81915b42544fadc600329c27b25,
@@ -5593,6 +5599,7 @@ MonoBehaviour:
   suspectButton: {fileID: 3309578620196140389, guid: ecef3a901cdf00242886d506e10f3bc0,
     type: 3}
   gameControllerObject: {fileID: 428424638}
+  scoringObject: {fileID: 312069488}
   eventSystem: {fileID: 631402564}
   endGameMenu: {fileID: 1493562627}
 --- !u!4 &1230300915

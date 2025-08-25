@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject suspectHolder;
     [SerializeField] private GameObject suspectButton;
     [SerializeField] private GameObject gameControllerObject;
+    [SerializeField] private GameObject scoringObject;
     private GameController gameController;
 
     [SerializeField] private GameObject eventSystem;
@@ -83,17 +84,19 @@ public class UIController : MonoBehaviour
     private void SuspectSelected(SuspectScriptableObject suspect)
     {
         results = gameController.OnSuspectSelect(suspect.suspectName);
+        for(var i = 0; i < results.Count;i++)
+        {
+            Debug.Log(results[i]);
+        }
         endGameMenu.SetActive(true);
-        suspectSelectMenu.SetActive(false);
-        endGameMenu.transform.GetChild(endGameMenu.transform.childCount - 1).gameObject.GetComponent<Button>().Select();
 
         endGameMenu.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = results[0];
         endGameMenu.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = results[1];
 
-        Transform scoringTransform = endGameMenu.transform.GetChild(3);
-        for (int i = 0; i < scoringTransform.childCount; i++)
+        
+        for (int i = 0; i < scoringObject.transform.childCount; i++)
         {
-            scoringTransform.GetChild(i).GetComponent<TextMeshProUGUI>().text = results[i + 2];
+            scoringObject.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = results[i + 2];
         }
 
     }
