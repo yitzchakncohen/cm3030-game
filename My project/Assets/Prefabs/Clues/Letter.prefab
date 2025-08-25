@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: -0.013331667
       objectReference: {fileID: 0}
+    - target: {fileID: 2401110926859327366, guid: f747d06308de29041bc97354117202e2,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 4334324491912680672, guid: f747d06308de29041bc97354117202e2,
         type: 3}
       propertyPath: meshRenderers.Array.size
