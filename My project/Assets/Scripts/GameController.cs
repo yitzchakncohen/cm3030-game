@@ -40,8 +40,7 @@ public class GameController : MonoBehaviour
         SuspectScriptableObject suspect = PickRandomSuspect();
         murderer = Instantiate(suspect);
 
-        InputManager inputManager = player.GetComponent<InputManager>();
-        inputManager.OnSuspectSelectMenuInput += uIController.GameEnded;
+        // InputManager inputManager = player.GetComponent<InputManager>();
 
         //
         ClueScanner clueScanner = player.GetComponent<ClueScanner>();
@@ -104,12 +103,6 @@ public class GameController : MonoBehaviour
         cluesToFind.Remove(scannedClue);
 
         Debug.Log("Clues found:" + foundClues.Count);
-
-        if (cluesToFind.Count == 0)
-        {
-            Debug.Log("All clues found.");
-            uIController.GameEnded();
-        }
     }
 
 

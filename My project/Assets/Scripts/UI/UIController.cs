@@ -10,11 +10,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private Dossier dossier;
 
     [SerializeField] private GameObject startMenu;
-    [SerializeField] private GameObject suspectSelectMenu;
-    [SerializeField] private GameObject clueHolder;
-    [SerializeField] private GameObject clueText;
-    [SerializeField] private GameObject suspectHolder;
-    [SerializeField] private GameObject suspectButton;
     [SerializeField] private GameObject gameControllerObject;
     [SerializeField] private GameObject scoringObject;
     private GameController gameController;
@@ -45,10 +40,6 @@ public class UIController : MonoBehaviour
     private void ClueScanner_OnClueScanned(Clue clue)
     {
         dossier.AddClue(clue.ClueScriptableObject);
-        GameObject clueObject = Instantiate(clueText, clueHolder.transform);
-        clueObject.name = clue.gameObject.transform.parent.name;
-        clueObject.GetComponent<TextMeshProUGUI>().text = clue.gameObject.transform.parent.name;
-
     }
 
 
@@ -57,23 +48,6 @@ public class UIController : MonoBehaviour
 
         startMenu.GetComponent<Animator>().SetTrigger("GameStarted");
 
-    }
-
-    public void GameEnded()
-    {
-        Debug.Log("uicontroller game ended");
-        suspectSelectMenu.SetActive(true);
-        foreach (SuspectScriptableObject suspect in gameController.allSuspects)
-        {
-            GameObject newButton = Instantiate(suspectButton, suspectHolder.transform);
-            newButton.GetComponentInChildren<TextMeshProUGUI>().text = suspect.suspectName;
-            newButton.name = suspect.suspectName;
-
-            // learnt how to do this from Unity documentation: https://docs.unity3d.com/2018.3/Documentation/ScriptReference/UI.Button-onClick.html
-            newButton.GetComponent<Button>().onClick.AddListener(() => SuspectSelected(suspect));
-        }
-
-        suspectHolder.transform.GetChild(1).gameObject.GetComponent<Button>().Select();
     }
     
     private void GameController_OnAccuseSuspect(SuspectScriptableObject suspect)

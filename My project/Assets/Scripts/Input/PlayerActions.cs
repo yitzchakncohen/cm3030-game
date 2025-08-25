@@ -153,15 +153,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""SuspectSelect"",
-                    ""type"": ""Button"",
-                    ""id"": ""951f9869-2cf8-460b-968b-e01e5a2cda3a"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -285,61 +276,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Scan"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b7523aae-8fad-4aa1-a48d-5861ad6bcf3c"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SuspectSelect"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e18b2ab1-cc5e-4521-9a8c-7c3738b73722"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SuspectSelect"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0a570858-b362-4aae-a8c6-5b0967c2cf9f"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SuspectSelect"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""97af3260-1212-4c22-8052-d898908372ba"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SuspectSelect"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8d56fdc2-6c23-4fa2-bb68-9e71b07493e1"",
-                    ""path"": ""<Keyboard>/9"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SuspectSelect"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -372,7 +308,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_CharacterController_Grab = m_CharacterController.FindAction("Grab", throwIfNotFound: true);
         m_CharacterController_ShowNotes = m_CharacterController.FindAction("ShowNotes", throwIfNotFound: true);
         m_CharacterController_Scan = m_CharacterController.FindAction("Scan", throwIfNotFound: true);
-        m_CharacterController_SuspectSelect = m_CharacterController.FindAction("SuspectSelect", throwIfNotFound: true);
     }
 
     ~@PlayerActions()
@@ -460,7 +395,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterController_Grab;
     private readonly InputAction m_CharacterController_ShowNotes;
     private readonly InputAction m_CharacterController_Scan;
-    private readonly InputAction m_CharacterController_SuspectSelect;
     /// <summary>
     /// Provides access to input actions defined in input action map "CharacterController".
     /// </summary>
@@ -500,10 +434,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "CharacterController/Scan".
         /// </summary>
         public InputAction @Scan => m_Wrapper.m_CharacterController_Scan;
-        /// <summary>
-        /// Provides access to the underlying input action "CharacterController/SuspectSelect".
-        /// </summary>
-        public InputAction @SuspectSelect => m_Wrapper.m_CharacterController_SuspectSelect;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -551,9 +481,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Scan.started += instance.OnScan;
             @Scan.performed += instance.OnScan;
             @Scan.canceled += instance.OnScan;
-            @SuspectSelect.started += instance.OnSuspectSelect;
-            @SuspectSelect.performed += instance.OnSuspectSelect;
-            @SuspectSelect.canceled += instance.OnSuspectSelect;
         }
 
         /// <summary>
@@ -586,9 +513,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Scan.started -= instance.OnScan;
             @Scan.performed -= instance.OnScan;
             @Scan.canceled -= instance.OnScan;
-            @SuspectSelect.started -= instance.OnSuspectSelect;
-            @SuspectSelect.performed -= instance.OnSuspectSelect;
-            @SuspectSelect.canceled -= instance.OnSuspectSelect;
         }
 
         /// <summary>
@@ -691,12 +615,5 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnScan(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "SuspectSelect" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSuspectSelect(InputAction.CallbackContext context);
     }
 }
