@@ -47,3 +47,7 @@ https://assetstore.unity.com/packages/3d/vehicles/land/american-sedans-taxi-poli
 https://assetstore.unity.com/packages/3d/environments/urban/bricktown-assetpack-240479
 
 https://assetstore.unity.com/packages/2d/environments/neon-sprite-pack-131754
+
+Floor Tiles 06 - Rob Tuytel(Polyhaven) - https://polyhaven.com/a/floor_tiles_06
+
+Plastered Wall 04 - Rob Tuytel(Polyhaven) - https://polyhaven.com/a/plastered_wall_04
