@@ -4867,18 +4867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fad04457e8f4b4197c4d70161ef8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1117815827 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8589855320883711733, guid: 836330f190b2eb844805ea81ce8e9b9d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1117815823}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c19c9adaafba34d9e10d5b4fb7a4af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1132070877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8098,6 +8086,18 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1117815823}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1702862279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8589855320883711733, guid: 836330f190b2eb844805ea81ce8e9b9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1117815823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c19c9adaafba34d9e10d5b4fb7a4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1714669452
 GameObject:
   m_ObjectHideFlags: 0
@@ -13689,7 +13689,7 @@ PrefabInstance:
         type: 3}
       propertyPath: rain
       value: 
-      objectReference: {fileID: 1117815827}
+      objectReference: {fileID: 1702862279}
     - target: {fileID: 4508408905941224992, guid: 8c0f59a2e40078a44b4ea018c030a9c3,
         type: 3}
       propertyPath: rainSound
