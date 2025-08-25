@@ -16,6 +16,9 @@ Models
 	"Classic wine bottle with label" (https://skfb.ly/69GwA) by ilya.terekhin is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 	"Wine Bottle" (https://skfb.ly/W8Fp) by sotocodes is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+	
+	"Keys" (https://skfb.ly/6SxPM) by imparity is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+	"Papers" (https://skfb.ly/oHFXR) by RavenBlox is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 Unity Packages
 	Low Poly Drinking Glasses
@@ -36,7 +39,7 @@ freesound.org
 	City ambience.wav by chimerical -- https://freesound.org/s/106839/ -- License: Creative Commons 0
 	Rain 2 by Smukey9 -- https://freesound.org/people/Smukey9/sounds/387063/ -- License: Creative Commons 0
 
-Exterior Asset prefaps
+Exterior Asset prefabs
 
 https://assetstore.unity.com/packages/3d/props/traffic-control-pack1-4919
 
@@ -48,6 +51,6 @@ https://assetstore.unity.com/packages/3d/environments/urban/bricktown-assetpack-
 
 https://assetstore.unity.com/packages/2d/environments/neon-sprite-pack-131754
 
-Floor Tiles 06 - Rob Tuytel(Polyhaven) - https://polyhaven.com/a/floor_tiles_06
-
-Plastered Wall 04 - Rob Tuytel(Polyhaven) - https://polyhaven.com/a/plastered_wall_04
+Poly Haven
+Floor Tiles 06 - Rob Tuytel [https://polyhaven.com/a/floor_tiles_06]
+Plastered Wall 04 - Rob Tuytel [https://polyhaven.com/a/plastered_wall_04]

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Campaign flyers
   m_EditorClassIdentifier: 
   clueName: Campaign flyers
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  model: {fileID: 4405447233510397581, guid: b17c5ac8316c3d048b652104e3d7b321, type: 3}
+  description: A stack of campaign flyers. Full of trite messaging and false promises.
+  validSpawnZones: []

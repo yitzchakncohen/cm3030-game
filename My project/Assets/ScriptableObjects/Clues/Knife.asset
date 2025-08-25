@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   clueName: Knife
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  model: {fileID: 3159367751106705862, guid: dd2004a7abc8a844e93d4a3db1c6a459, type: 3}
+  description: A kitchen knife. There's a little brown stain on the edge.
+  validSpawnZones: []
