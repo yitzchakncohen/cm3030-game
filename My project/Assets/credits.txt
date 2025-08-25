@@ -16,38 +16,51 @@ Models
 	"Classic wine bottle with label" (https://skfb.ly/69GwA) by ilya.terekhin is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 	"Wine Bottle" (https://skfb.ly/W8Fp) by sotocodes is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+	
+	"Keys" (https://skfb.ly/6SxPM) by imparity is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+	"Papers" (https://skfb.ly/oHFXR) by RavenBlox is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+	"Roll of Stamps" (https://skfb.ly/ow6K8) by josephcan232 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+	"Caterpillar Boots 3D" (https://skfb.ly/oGz9J) by Teodor Cod is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+	"Old Wrench" (https://skfb.ly/ovPrL) by MaX3Dd is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+	"3D icon PINS" (https://skfb.ly/6wtzR) by Sparrow is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 Unity Packages
-	Low Poly Drinking Glasses
-	Low Poly Stylized Gun
-	Bar Props
-	Food pack Mixed
-	Gogo Casual Pack
-	AllSkyFree
-	Low Poly Stylized Knife Pack
-	Low Poly Pistol Weapon Pack 1
-	PBR Dirty Dumpster
-	Game Input Controller Icons Free
-	Footsteps Mini Sound Pack
-	Free UI Soundpack
+	Low Poly Drinking Glasses - https://assetstore.unity.com/packages/p/10-drink-glasses-pack-3d-low-poly-models-292246s
+	Bar Props - https://assetstore.unity.com/packages/p/barprops-137130
+	Food pack Mixed - https://assetstore.unity.com/packages/3d/props/food/food-pack-mixed-154349
+	Casual Light Pack - https://assetstore.unity.com/packages/3d/props/interior/casual-light-pack-303168
+	AllSkyFree - https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014
+	Low Poly Stylized Knife Pack - https://assetstore.unity.com/packages/3d/props/weapons/low-poly-stylized-knife-pack-299272
+	Low Poly Pistol Weapon Pack 1 - https://assetstore.unity.com/packages/3d/props/guns/low-poly-pistol-weapon-pack-1-285693
+	PBR Dirty Dumpster - https://assetstore.unity.com/packages/p/pbr-dirty-dumpster-59840
+	Game Input Controller Icons Free - https://assetstore.unity.com/packages/p/game-input-controller-icons-free-285953
+	Footsteps Mini Sound Pack - https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-mini-sound-pack-307682
+	Free UI Soundpack - https://assetstore.unity.com/packages/p/free-ui-soundpack-239372
 	VR-ready PBR toilet - https://assetstore.unity.com/packages/3d/characters/vr-ready-pbr-toilet-116576
+	Blood splatter decal package - https://assetstore.unity.com/packages/2d/textures-materials/blood-splatter-decal-package-7518
+	P3D: Outdoor Wall Tile Texture Pack (LR) - https://assetstore.unity.com/packages/2d/textures-materials/brick/p3d-outdoor-wall-tile-texture-pack-lr-247739
 
 freesound.org
 	City ambience.wav by chimerical -- https://freesound.org/s/106839/ -- License: Creative Commons 0
 	Rain 2 by Smukey9 -- https://freesound.org/people/Smukey9/sounds/387063/ -- License: Creative Commons 0
 
-Exterior Asset prefaps
+Exterior Asset prefabs
 
-https://assetstore.unity.com/packages/3d/props/traffic-control-pack1-4919
+	https://assetstore.unity.com/packages/3d/props/traffic-control-pack1-4919
 
-https://assetstore.unity.com/packages/3d/props/megapoly-art-urban-props-217030
+	Megapoly.Art - Urban Props - https://assetstore.unity.com/packages/3d/props/megapoly-art-urban-props-217030
 
-https://assetstore.unity.com/packages/3d/vehicles/land/american-sedans-taxi-police-classic-317900
+	https://assetstore.unity.com/packages/3d/vehicles/land/american-sedans-taxi-police-classic-317900
 
-https://assetstore.unity.com/packages/3d/environments/urban/bricktown-assetpack-240479
+	https://assetstore.unity.com/packages/3d/environments/urban/bricktown-assetpack-240479
 
-https://assetstore.unity.com/packages/2d/environments/neon-sprite-pack-131754
+	Neon Sprite Pack - https://assetstore.unity.com/packages/2d/environments/neon-sprite-pack-131754
 
-Floor Tiles 06 - Rob Tuytel(Polyhaven) - https://polyhaven.com/a/floor_tiles_06
-
-Plastered Wall 04 - Rob Tuytel(Polyhaven) - https://polyhaven.com/a/plastered_wall_04
+Poly Haven
+	Floor Tiles 06 - Rob Tuytel [https://polyhaven.com/a/floor_tiles_06]
+	Plastered Wall 04 - Rob Tuytel [https://polyhaven.com/a/plastered_wall_04]

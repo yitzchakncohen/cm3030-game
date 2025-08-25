@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Flag Pin
   m_EditorClassIdentifier: 
   clueName: Flag pin
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  model: {fileID: 7173815278906741782, guid: 875f854218492f44e8e63654e82946ad, type: 3}
+  description: A flag pin. A souvenir from a rally, perhaps?
+  validSpawnZones: []
