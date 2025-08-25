@@ -49,6 +49,10 @@ freesound.org
 	City ambience.wav by chimerical -- https://freesound.org/s/106839/ -- License: Creative Commons 0
 	Rain 2 by Smukey9 -- https://freesound.org/people/Smukey9/sounds/387063/ -- License: Creative Commons 0
 
+Pixabay
+	Sound Effect by ALEXIS_GAMING_CAM from https://pixabay.com/users/alexis_gaming_cam-50011695/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=338296 
+	Sound Effect by freesound_community from https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=82334
+
 Exterior Asset prefabs
 
 	https://assetstore.unity.com/packages/3d/props/traffic-control-pack1-4919

@@ -57,7 +57,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'meshRenderers.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6430693675806071038}
     - target: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2,
         type: 3}
       propertyPath: m_Name
@@ -222,6 +222,12 @@ PrefabInstance:
 --- !u!4 &5293212867801801617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 950cf08d154e42d43ada7061672c927f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5692546022713525370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6430693675806071038 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 950cf08d154e42d43ada7061672c927f,
     type: 3}
   m_PrefabInstance: {fileID: 5692546022713525370}
   m_PrefabAsset: {fileID: 0}

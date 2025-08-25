@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6e0fece8ab8344eaae910429f08f14, type: 3}
   m_Name: Politician
   m_EditorClassIdentifier: 
-  suspectName: The politician
+  suspectName: The Politician
+  Description: 
   clues:
   - {fileID: 11400000, guid: aec2bfde099329e4ab4abe2c45801d5b, type: 2}
   - {fileID: 11400000, guid: 2861b1fdf92deed4ca9e21d99f65a085, type: 2}

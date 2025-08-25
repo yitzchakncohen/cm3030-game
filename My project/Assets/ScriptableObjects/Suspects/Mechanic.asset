@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Mechanic
   m_EditorClassIdentifier: 
   suspectName: The Mechanic
+  Description: 
   clues:
   - {fileID: 11400000, guid: 6068e79a662fb3443a2f609e6184c0ad, type: 2}
   - {fileID: 11400000, guid: fdcb0b671d5647745871b5f47aa6ba23, type: 2}
   - {fileID: 11400000, guid: 342227d907978eb40af3403c20754a8f, type: 2}
   - {fileID: 11400000, guid: 92b7e9be5b0fcb74e9dc19097cdd4827, type: 2}
   - {fileID: 11400000, guid: 282858fb7688dfd438ec96859802d630, type: 2}
-  model: {fileID: 5956166457254833813, guid: 836330f190b2eb844805ea81ce8e9b9d, type: 3}
+  model: {fileID: 0}
