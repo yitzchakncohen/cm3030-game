@@ -13,6 +13,9 @@ Models
 
 	"Garbage bags" (https://skfb.ly/orDMJ) by DJMaesen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
+	"Classic wine bottle with label" (https://skfb.ly/69GwA) by ilya.terekhin is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+	"Wine Bottle" (https://skfb.ly/W8Fp) by sotocodes is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 Unity Packages
 	Low Poly Drinking Glasses
