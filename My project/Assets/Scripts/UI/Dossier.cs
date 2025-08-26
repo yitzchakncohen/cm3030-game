@@ -58,7 +58,7 @@ public class Dossier : MonoBehaviour
     {
         currentSuspect = (currentSuspect + 1) % suspects.Count;
         suspectCell.Init(suspects[currentSuspect]);
-        pageNumber.text = $"{currentSuspect}/{suspects.Count}";
+        pageNumber.text = $"{currentSuspect+1}/{suspects.Count}";
     }
 
     private void OnAccuseSuspectClick()

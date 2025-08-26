@@ -105,7 +105,7 @@ public class GameController : MonoBehaviour
     }
 
 
- 
+
 
     public List<string> OnSuspectSelect(string input)
     {
@@ -125,7 +125,7 @@ public class GameController : MonoBehaviour
         results.Add($"It took you {Time.time} seconds.");
         results.Add("Score: 100");
 
-        
+
         return results;
 
 
@@ -230,6 +230,11 @@ public class GameController : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("test");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
 }
