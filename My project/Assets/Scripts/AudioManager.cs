@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private ClueScanner clueScanner;
     [SerializeField] private Rain rain;
     [SerializeField] private Radio radio;
+    private float delay = 1f;
 
     private Button[] buttons;
 
@@ -56,7 +58,6 @@ public class AudioManager : MonoBehaviour
         clueScanner.OnClueScanned += OnClueScanned;
         rain.OnRainStart += Rain_OnRainStart;
         rain.OnRainStop += Rain_OnRainStop;
-        radio.OnPlayRadioNoise += Radio_OnPlayRadioNoise;
         radio.OnPlayIntroVoiceSequence += Radio_OnPlayIntroVoiceSequence;
     }
 
@@ -70,7 +71,6 @@ public class AudioManager : MonoBehaviour
         clueScanner.OnClueScanned -= OnClueScanned;
         rain.OnRainStart -= Rain_OnRainStart;
         rain.OnRainStop -= Rain_OnRainStop;
-        radio.OnPlayRadioNoise -= Radio_OnPlayRadioNoise;
         radio.OnPlayIntroVoiceSequence -= Radio_OnPlayIntroVoiceSequence;
     }
 
@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
         {
             if (!footStepSource.isPlaying)
             {
-                int randomSound = Random.Range(0, footStepSounds.Length);
+                int randomSound = UnityEngine.Random.Range(0, footStepSounds.Length);
                 AudioClip footStepSound = footStepSounds[randomSound];
                 footStepSource.PlayOneShot(footStepSound);
             }
@@ -125,60 +125,71 @@ public class AudioManager : MonoBehaviour
         ambientNoiseSource.volume = 0.3f;
     }
 
-    private void Radio_OnPlayRadioNoise()
-    {
-        playerSource.PlayOneShot(radioSound);
-    }
-
     private void Radio_OnPlayIntroVoiceSequence()
     {
-        playerSource.PlayOneShot(radioNoise, 0.2f);
-        float random = Random.Range(0f, 1f);
+        PlayOpeningSequence();
+    }
+
+    private void PlayOpeningSequence()
+    {
+        float random = UnityEngine.Random.Range(0f, 1f);
         if (random > 0.5f)
         {
-            PlayOpenSequence1();
+            StartCoroutine(RadioRoutine(PlayOpenSequence1));
         }
         else
         {
-            PlayOpenSequence2();
+            StartCoroutine(RadioRoutine(PlayOpenSequence2));
         }
     }
 
-    public void PlayOpenSequence1()
+    private void PlayOpenSequence1()
     {
         radioSource.PlayOneShot(opening1);
     }
 
-    public void PlayOpenSequence2()
+    private void PlayOpenSequence2()
     {
         radioSource.PlayOneShot(opening2);
     }
 
-    public void PlayOpenSequence3()
+    private void PlayOpenSequence3()
     {
         radioSource.PlayOneShot(opening3);
     }
 
+    public void StartOpenSequence3()
+    {
+        StartCoroutine(RadioRoutine(PlayOpenSequence3));
+    }
+
     public void PlayHurryLine()
     {
-        float random = Random.Range(0f, 1f);
+        float random = UnityEngine.Random.Range(0f, 1f);
         if (random > 0.5f)
         {
-            PlayOpenHurry1();
+            StartCoroutine(RadioRoutine(PlayOpenHurry1));
         }
         else
         {
-            PlayOpenHurry2();
+            StartCoroutine(RadioRoutine(PlayOpenHurry2));
         }
     }
 
-    public void PlayOpenHurry1()
+    private void PlayOpenHurry1()
     {
         radioSource.PlayOneShot(hurry1);
     }
 
-    public void PlayOpenHurry2()
+    private void PlayOpenHurry2()
     {
         radioSource.PlayOneShot(hurry2);
+    }
+
+    private IEnumerator RadioRoutine(Action voiceCallback)
+    {
+        playerSource.PlayOneShot(radioSound);
+        yield return new WaitForSeconds(delay);
+        voiceCallback();
     }
 }
