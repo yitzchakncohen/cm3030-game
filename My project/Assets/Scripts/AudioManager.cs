@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource uiNoiseSource;
     [SerializeField] private AudioSource footStepSource;
     [SerializeField] private AudioSource playerSource;
+    [SerializeField] private AudioSource radioSource;
     [SerializeField] private AudioSource rainSource;
 
     [Header("Sound FX")]
@@ -21,7 +22,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip clueScanned;
     [SerializeField] private AudioClip rainSound;
     [SerializeField] private AudioClip radioSound;
-    [SerializeField] private AudioClip introRadioSequence;
+    [SerializeField] private AudioClip radioNoise;
+    [SerializeField] private AudioClip opening1;
+    [SerializeField] private AudioClip opening2;
+    [SerializeField] private AudioClip opening3;
+    [SerializeField] private AudioClip hurry1;
+    [SerializeField] private AudioClip hurry2;
 
     [Header("Game References")]
     [SerializeField] private CharacterController characterController;
@@ -51,7 +57,7 @@ public class AudioManager : MonoBehaviour
         rain.OnRainStart += Rain_OnRainStart;
         rain.OnRainStop += Rain_OnRainStop;
         radio.OnPlayRadioNoise += Radio_OnPlayRadioNoise;
-        radio.OnPlayIntroVoiceSequence += Radio_OnPlayIntroVoideSequence;
+        radio.OnPlayIntroVoiceSequence += Radio_OnPlayIntroVoiceSequence;
     }
 
     void OnDestroy()
@@ -65,7 +71,7 @@ public class AudioManager : MonoBehaviour
         rain.OnRainStart -= Rain_OnRainStart;
         rain.OnRainStop -= Rain_OnRainStop;
         radio.OnPlayRadioNoise -= Radio_OnPlayRadioNoise;
-        radio.OnPlayIntroVoiceSequence -= Radio_OnPlayIntroVoideSequence;
+        radio.OnPlayIntroVoiceSequence -= Radio_OnPlayIntroVoiceSequence;
     }
 
     private void Update()
@@ -124,8 +130,55 @@ public class AudioManager : MonoBehaviour
         playerSource.PlayOneShot(radioSound);
     }
 
-    private void Radio_OnPlayIntroVoideSequence()
+    private void Radio_OnPlayIntroVoiceSequence()
     {
-        playerSource.PlayOneShot(introRadioSequence);
+        playerSource.PlayOneShot(radioNoise, 0.2f);
+        float random = Random.Range(0f, 1f);
+        if (random > 0.5f)
+        {
+            PlayOpenSequence1();
+        }
+        else
+        {
+            PlayOpenSequence2();
+        }
+    }
+
+    public void PlayOpenSequence1()
+    {
+        radioSource.PlayOneShot(opening1);
+    }
+
+    public void PlayOpenSequence2()
+    {
+        radioSource.PlayOneShot(opening2);
+    }
+
+    public void PlayOpenSequence3()
+    {
+        radioSource.PlayOneShot(opening3);
+    }
+
+    public void PlayHurryLine()
+    {
+        float random = Random.Range(0f, 1f);
+        if (random > 0.5f)
+        {
+            PlayOpenHurry1();
+        }
+        else
+        {
+            PlayOpenHurry2();
+        }
+    }
+
+    public void PlayOpenHurry1()
+    {
+        radioSource.PlayOneShot(hurry1);
+    }
+
+    public void PlayOpenHurry2()
+    {
+        radioSource.PlayOneShot(hurry2);
     }
 }
