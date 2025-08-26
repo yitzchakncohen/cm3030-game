@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource uiNoiseSource;
     [SerializeField] private AudioSource footStepSource;
     [SerializeField] private AudioSource playerSource;
+    [SerializeField] private AudioSource radioSource;
     [SerializeField] private AudioSource rainSource;
 
     [Header("Sound FX")]
@@ -21,13 +23,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip clueScanned;
     [SerializeField] private AudioClip rainSound;
     [SerializeField] private AudioClip radioSound;
-    [SerializeField] private AudioClip introRadioSequence;
+    [SerializeField] private AudioClip radioNoise;
+    [SerializeField] private AudioClip opening1;
+    [SerializeField] private AudioClip opening2;
+    [SerializeField] private AudioClip opening3;
+    [SerializeField] private AudioClip hurry1;
+    [SerializeField] private AudioClip hurry2;
 
     [Header("Game References")]
     [SerializeField] private CharacterController characterController;
     [SerializeField] private ClueScanner clueScanner;
     [SerializeField] private Rain rain;
     [SerializeField] private Radio radio;
+    private float delay = 1f;
 
     private Button[] buttons;
 
@@ -50,8 +58,7 @@ public class AudioManager : MonoBehaviour
         clueScanner.OnClueScanned += OnClueScanned;
         rain.OnRainStart += Rain_OnRainStart;
         rain.OnRainStop += Rain_OnRainStop;
-        radio.OnPlayRadioNoise += Radio_OnPlayRadioNoise;
-        radio.OnPlayIntroVoiceSequence += Radio_OnPlayIntroVoideSequence;
+        radio.OnPlayIntroVoiceSequence += Radio_OnPlayIntroVoiceSequence;
     }
 
     void OnDestroy()
@@ -64,8 +71,7 @@ public class AudioManager : MonoBehaviour
         clueScanner.OnClueScanned -= OnClueScanned;
         rain.OnRainStart -= Rain_OnRainStart;
         rain.OnRainStop -= Rain_OnRainStop;
-        radio.OnPlayRadioNoise -= Radio_OnPlayRadioNoise;
-        radio.OnPlayIntroVoiceSequence -= Radio_OnPlayIntroVoideSequence;
+        radio.OnPlayIntroVoiceSequence -= Radio_OnPlayIntroVoiceSequence;
     }
 
     private void Update()
@@ -74,7 +80,7 @@ public class AudioManager : MonoBehaviour
         {
             if (!footStepSource.isPlaying)
             {
-                int randomSound = Random.Range(0, footStepSounds.Length);
+                int randomSound = UnityEngine.Random.Range(0, footStepSounds.Length);
                 AudioClip footStepSound = footStepSounds[randomSound];
                 footStepSource.PlayOneShot(footStepSound);
             }
@@ -119,13 +125,71 @@ public class AudioManager : MonoBehaviour
         ambientNoiseSource.volume = 0.3f;
     }
 
-    private void Radio_OnPlayRadioNoise()
+    private void Radio_OnPlayIntroVoiceSequence()
     {
-        playerSource.PlayOneShot(radioSound);
+        PlayOpeningSequence();
     }
 
-    private void Radio_OnPlayIntroVoideSequence()
+    private void PlayOpeningSequence()
     {
-        playerSource.PlayOneShot(introRadioSequence);
+        float random = UnityEngine.Random.Range(0f, 1f);
+        if (random > 0.5f)
+        {
+            StartCoroutine(RadioRoutine(PlayOpenSequence1));
+        }
+        else
+        {
+            StartCoroutine(RadioRoutine(PlayOpenSequence2));
+        }
+    }
+
+    private void PlayOpenSequence1()
+    {
+        radioSource.PlayOneShot(opening1);
+    }
+
+    private void PlayOpenSequence2()
+    {
+        radioSource.PlayOneShot(opening2);
+    }
+
+    private void PlayOpenSequence3()
+    {
+        radioSource.PlayOneShot(opening3);
+    }
+
+    public void StartOpenSequence3()
+    {
+        StartCoroutine(RadioRoutine(PlayOpenSequence3));
+    }
+
+    public void PlayHurryLine()
+    {
+        float random = UnityEngine.Random.Range(0f, 1f);
+        if (random > 0.5f)
+        {
+            StartCoroutine(RadioRoutine(PlayOpenHurry1));
+        }
+        else
+        {
+            StartCoroutine(RadioRoutine(PlayOpenHurry2));
+        }
+    }
+
+    private void PlayOpenHurry1()
+    {
+        radioSource.PlayOneShot(hurry1);
+    }
+
+    private void PlayOpenHurry2()
+    {
+        radioSource.PlayOneShot(hurry2);
+    }
+
+    private IEnumerator RadioRoutine(Action voiceCallback)
+    {
+        playerSource.PlayOneShot(radioSound);
+        yield return new WaitForSeconds(delay);
+        voiceCallback();
     }
 }
