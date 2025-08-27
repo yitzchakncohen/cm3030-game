@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Politician
   m_EditorClassIdentifier: 
   suspectName: The Politician
-  Description: 
+  Description: A smooth-talking politician. They're currently running for office;
+    wonder how far they'd go to win?
   clues:
   - {fileID: 11400000, guid: aec2bfde099329e4ab4abe2c45801d5b, type: 2}
   - {fileID: 11400000, guid: 2861b1fdf92deed4ca9e21d99f65a085, type: 2}
