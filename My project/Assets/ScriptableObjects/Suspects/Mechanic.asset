@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Mechanic
   m_EditorClassIdentifier: 
   suspectName: The Mechanic
-  Description: 
+  Description: A hard-working mechanic. Seems to visit the bar often. The staff speak
+    highly of them. The regulars on the other hand...
   clues:
   - {fileID: 11400000, guid: 6068e79a662fb3443a2f609e6184c0ad, type: 2}
   - {fileID: 11400000, guid: fdcb0b671d5647745871b5f47aa6ba23, type: 2}
