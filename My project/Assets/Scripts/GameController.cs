@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Dossier dossier;
 
-
     List<ClueScriptableObject> cluesToFind;
 
     // public TextAsset spawnPointsFile;
@@ -29,6 +28,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject player;
 
     private int totalClues;
+    [SerializeField] private int maxScore;
+    [SerializeField] private int optimalTime;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -113,7 +114,6 @@ public class GameController : MonoBehaviour
         if (input == murderer.suspectName)
         {
             results.Add("You got the right suspect!");
-
         }
         else
         {
@@ -122,8 +122,19 @@ public class GameController : MonoBehaviour
 
         results.Add("The killer was " + murderer.suspectName);
         results.Add($"You got {foundClues.Count()} out of {totalClues} clues.");
-        results.Add($"It took you {Time.time} seconds.");
-        results.Add("Score: 100");
+        double secondsTaken = Math.Floor(Time.timeSinceLevelLoad);
+        results.Add($"It took you {secondsTaken} seconds.");
+        double score;
+        if (input == murderer.suspectName)
+        {
+            score = CalculateScore(secondsTaken,foundClues.Count,totalClues);
+            
+        }
+        else
+        {
+            score = 0;
+        }
+        results.Add($"Score: {score}");
 
 
         return results;
@@ -235,6 +246,13 @@ public class GameController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    private double CalculateScore(double secondsTaken,int cluesFound,int totalClues)
+    {
+        double cluesPenalty = (totalClues - cluesFound) * 50;
+        double timeTakenAboveOptimal = Math.Max(secondsTaken - optimalTime,0);
+        double score = maxScore - (timeTakenAboveOptimal*2) - cluesPenalty;
+        return score;
     }
 
 }
