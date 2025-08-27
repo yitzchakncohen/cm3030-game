@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Postman Hat
   m_EditorClassIdentifier: 
   clueName: Hat
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
+  model: {fileID: 3159367751106705862, guid: d72380d7d6326f841bc0f61a35e0918f, type: 3}
   description: A traditional postman hat.
-  defaultSpawnPoints: []
+  validSpawnZones: []

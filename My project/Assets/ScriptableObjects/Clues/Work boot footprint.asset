@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Work boot footprint
   m_EditorClassIdentifier: 
   clueName: Footprint (work boot)
-  model: {fileID: 7644527253899290678, guid: f747d06308de29041bc97354117202e2, type: 3}
-  description: 
+  model: {fileID: 7644527253899290678, guid: 4e8f201c038fdc84298d28e4a198b37d, type: 3}
+  description: A muddy footprint. The tread pattern suggests a work boot made it.
+  validSpawnZones: []
