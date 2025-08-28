@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueName: Bribe money
   model: {fileID: 3159367751106705862, guid: e265cc4b86eee824f8d0f8177fbaaea8, type: 3}
-  description: A stack of money. Looks innocuous enough, but the sheer amount suggests
-    dirty-dealings.
-  defaultSpawnPoints: []
+  description: Looks innocuous enough, but the sheer amount suggests dirty-dealings.
+  validSpawnZones: []

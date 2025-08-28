@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueName: Stamps
   model: {fileID: 3159367751106705862, guid: 495af10224c3a2647b44ae838007c8de, type: 3}
-  description: A roll of stamps. Doubt anyone needs this many.
+  description: Doubt anyone needs this many.
   validSpawnZones: []

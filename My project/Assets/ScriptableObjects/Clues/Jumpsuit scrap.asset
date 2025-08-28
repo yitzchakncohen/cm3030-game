@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082a3cd3c87669b45b393758b0716aec, type: 3}
   m_Name: Jumpsuit scrap
   m_EditorClassIdentifier: 
-  clueName: Scrap of clothing (jumpsuit material)
+  clueName: Scrap of clothing
   model: {fileID: 3159367751106705862, guid: f5dc1b9e2a40b2843aef37d082bb358b, type: 3}
-  description: A torn bit of fabric. The material looks durable, as if it came from
-    a jumpsuit.
+  description: The material looks durable, as if it came from a jumpsuit.
   validSpawnZones: []

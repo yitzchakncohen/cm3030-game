@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueName: Wrench
   model: {fileID: 7644527253899290678, guid: 2812bf97d373e8d4db16896ecf84fa53, type: 3}
-  description: A heavy duty wrench.
+  description: Heavy and sturdy. A little bit greasy too.
   validSpawnZones: []
