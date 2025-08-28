@@ -16,9 +16,7 @@ public class GameController : MonoBehaviour
 
     // public TextAsset spawnPointsFile;
     [SerializeField] private GameObject zones;
-
-    public List<Vector3> spawnPoints;
-
+    
     public List<SuspectScriptableObject> allSuspects;
     List<SuspectScriptableObject> activeSuspects;
     private SuspectScriptableObject murderer;
@@ -143,31 +141,6 @@ public class GameController : MonoBehaviour
     }
 
 
-
-
-    private void DebugSpawnPoints(ClueScriptableObject clue)
-    {
-        foreach (Vector3 spawnPoint in spawnPoints)
-        {
-            GameObject currentClue = Instantiate(clue.model, spawnPoint, Quaternion.identity);
-            currentClue.name = clue.clueName;
-        }
-    }
-
-    // private void CreateSpawnPointsFromCSV()
-    // {
-    //     // unused.
-    //     spawnPoints = new List<Vector3>();
-    //     string[] lines = spawnPointsFile.text.Split("\n");
-    //     foreach (string line in lines)
-    //     {
-    //         string[] words = line.Split(",");
-    //         Debug.Log(line);
-    //         Vector3 vector = new Vector3(float.Parse(words[0]), float.Parse(words[1]), float.Parse(words[2]));
-    //         spawnPoints.Add(vector);
-    //     }
-    // }
-
     private SuspectScriptableObject PickRandomSuspect()
     {
         int x = UnityEngine.Random.Range(0, activeSuspects.Count());
@@ -219,7 +192,6 @@ public class GameController : MonoBehaviour
 
         }
         Debug.LogWarning("Could not find a spawn point");
-        x = 0;
         return new Vector3(0, 0, 0);
     }
 

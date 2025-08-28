@@ -6,7 +6,6 @@ using Random = Unity.Mathematics.Random;
 public class Zone : MonoBehaviour
 {
     [SerializeField] int maxNumberOfClues;
-    [SerializeField] List<Vector3> spawnPoints;
     private int numOfClues;
 
     /// <summary>
