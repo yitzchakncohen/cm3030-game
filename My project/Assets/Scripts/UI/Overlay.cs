@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Overlay : MonoBehaviour
 {
+    public event Action<SuspectScriptableObject> OnAccuseSuspect;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private ClueScanner clueScanner;
     [SerializeField] private CharacterController characterController;
@@ -16,10 +18,12 @@ public class Overlay : MonoBehaviour
     [SerializeField] private GameObject scanProgress;
     [SerializeField] private Image scanProgressBar;
     [SerializeField] private GameObject dossierPip;
+    [SerializeField] private AccusePopup accusePopup;
 
     private void Start()
     {
         doneButton.onClick.AddListener(OnDoneButtonClick);
+        accusePopup.OnAccuseSuspect += AccusePopup_OnAccuseSuspect;
         HideDossier();
         HideDossierPip();
     }
@@ -27,6 +31,7 @@ public class Overlay : MonoBehaviour
     private void OnDestroy()
     {
         doneButton.onClick.RemoveAllListeners();
+        accusePopup.OnAccuseSuspect -= AccusePopup_OnAccuseSuspect;
     }
 
     private void Update()
@@ -118,6 +123,23 @@ public class Overlay : MonoBehaviour
         }
     }
 
+    public void ShowAccusePopup(SuspectScriptableObject suspect)
+    {
+        accusePopup.Init(suspect);
+        if (!accusePopup.gameObject.activeSelf)
+        {
+            accusePopup.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideAccusePopup()
+    {
+        if (accusePopup.gameObject.activeSelf)
+        {
+            accusePopup.gameObject.SetActive(false);
+        }
+    }
+
     public void ShowInteract(Transform target)
     {
         Vector3 screenPoint = Camera.main.WorldToScreenPoint(target.position);
@@ -144,5 +166,10 @@ public class Overlay : MonoBehaviour
     private void OnDoneButtonClick()
     {
         controls.gameObject.SetActive(false);
+    }
+
+    private void AccusePopup_OnAccuseSuspect(SuspectScriptableObject suspect)
+    {
+        OnAccuseSuspect?.Invoke(suspect);
     }
 }

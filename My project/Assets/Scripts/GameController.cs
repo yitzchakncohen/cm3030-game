@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private UIController uIController;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Dossier dossier;
+    [SerializeField] private Overlay overlay;
 
     List<ClueScriptableObject> cluesToFind;
 
@@ -79,6 +80,7 @@ public class GameController : MonoBehaviour
         dossier.OnAccuseSuspect += Dossier_OnAccuseSuspect;
         dossier.OnOpen += Dossier_OnOpen;
         dossier.OnClose += Dossier_OnClose;
+        overlay.OnAccuseSuspect += Overlay_OnAccuseSuspect;
     }
 
     private void OnDestroy()
@@ -86,6 +88,7 @@ public class GameController : MonoBehaviour
         dossier.OnAccuseSuspect -= Dossier_OnAccuseSuspect;
         dossier.OnOpen -= Dossier_OnOpen;
         dossier.OnClose -= Dossier_OnClose;
+        overlay.OnAccuseSuspect -= Overlay_OnAccuseSuspect;
     }
 
     // Update is called once per frame
@@ -198,7 +201,7 @@ public class GameController : MonoBehaviour
 
     private void Dossier_OnAccuseSuspect(SuspectScriptableObject suspect)
     {
-        OnAccuseSuspect?.Invoke(suspect);
+        overlay.ShowAccusePopup(suspect);
     }
 
     private void Dossier_OnOpen()
@@ -209,6 +212,13 @@ public class GameController : MonoBehaviour
     private void Dossier_OnClose()
     {
         characterController.ToggleLook(true);
+        overlay.HideAccusePopup();
+    }
+
+    private void Overlay_OnAccuseSuspect(SuspectScriptableObject suspect)
+    {
+        overlay.HideAccusePopup();
+        OnAccuseSuspect?.Invoke(suspect);
     }
 
     public void RestartGame()
