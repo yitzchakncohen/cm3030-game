@@ -15,10 +15,13 @@ public class Overlay : MonoBehaviour
     [SerializeField] private RectTransform controls;
     [SerializeField] private GameObject scanProgress;
     [SerializeField] private Image scanProgressBar;
+    [SerializeField] private GameObject dossierPip;
 
     private void Start()
     {
         doneButton.onClick.AddListener(OnDoneButtonClick);
+        HideDossier();
+        HideDossierPip();
     }
 
     private void OnDestroy()
@@ -87,6 +90,16 @@ public class Overlay : MonoBehaviour
         dossier.gameObject.SetActive(false);
     }
 
+    public void ShowDossierPip()
+    {
+        dossierPip.SetActive(true);
+    }
+
+    public void HideDossierPip()
+    {
+        dossierPip.SetActive(false);
+    }
+
     public void ShowScanClue(Transform target)
     {
         Vector3 screenPoint = Camera.main.WorldToScreenPoint(target.position);
@@ -122,7 +135,7 @@ public class Overlay : MonoBehaviour
             interact.gameObject.SetActive(false);
         }
     }
-    
+
     public void OnControlsButtonClick()
     {
         controls.gameObject.SetActive(true);

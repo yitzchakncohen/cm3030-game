@@ -52,6 +52,7 @@ public class Dossier : MonoBehaviour
     {
         ClueCell clueCell = Instantiate(cluePrefab, clueHolder);
         clueCell.Init(clue);
+        overlay.ShowDossierPip();
     }
 
     private void OnNextSuspectClick()
@@ -80,6 +81,7 @@ public class Dossier : MonoBehaviour
             Cursor.visible = true;
             overlay.HideCrosshair();
             OnOpen?.Invoke();
+            overlay.HideDossierPip();
         }
         else
         {
