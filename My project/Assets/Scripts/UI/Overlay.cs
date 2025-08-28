@@ -1,8 +1,11 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Overlay : MonoBehaviour
 {
+    public event Action<SuspectScriptableObject> OnAccuseSuspect;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private ClueScanner clueScanner;
     [SerializeField] private CharacterController characterController;
@@ -15,15 +18,23 @@ public class Overlay : MonoBehaviour
     [SerializeField] private RectTransform controls;
     [SerializeField] private GameObject scanProgress;
     [SerializeField] private Image scanProgressBar;
+    [SerializeField] private GameObject dossierPip;
+    [SerializeField] private AccusePopup accusePopup;
+    [SerializeField] private GameObject timer;
+    [SerializeField] private TMP_Text timeText;
 
     private void Start()
     {
         doneButton.onClick.AddListener(OnDoneButtonClick);
+        accusePopup.OnAccuseSuspect += AccusePopup_OnAccuseSuspect;
+        HideDossier();
+        HideDossierPip();
     }
 
     private void OnDestroy()
     {
         doneButton.onClick.RemoveAllListeners();
+        accusePopup.OnAccuseSuspect -= AccusePopup_OnAccuseSuspect;
     }
 
     private void Update()
@@ -87,6 +98,31 @@ public class Overlay : MonoBehaviour
         dossier.gameObject.SetActive(false);
     }
 
+    public void ShowDossierPip()
+    {
+        dossierPip.SetActive(true);
+    }
+
+    public void HideDossierPip()
+    {
+        dossierPip.SetActive(false);
+    }
+
+    public void ShowTimer()
+    {
+        timer.SetActive(true);
+    }
+
+    public void HideTimer()
+    {
+        timer.SetActive(false);
+    }
+
+    public void UpdateTime(string timer)
+    {
+        timeText.text = timer;
+    }
+
     public void ShowScanClue(Transform target)
     {
         Vector3 screenPoint = Camera.main.WorldToScreenPoint(target.position);
@@ -102,6 +138,23 @@ public class Overlay : MonoBehaviour
         if (scanClue.gameObject.activeSelf)
         {
             scanClue.gameObject.SetActive(false);
+        }
+    }
+
+    public void ShowAccusePopup(SuspectScriptableObject suspect)
+    {
+        accusePopup.Init(suspect);
+        if (!accusePopup.gameObject.activeSelf)
+        {
+            accusePopup.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideAccusePopup()
+    {
+        if (accusePopup.gameObject.activeSelf)
+        {
+            accusePopup.gameObject.SetActive(false);
         }
     }
 
@@ -122,7 +175,7 @@ public class Overlay : MonoBehaviour
             interact.gameObject.SetActive(false);
         }
     }
-    
+
     public void OnControlsButtonClick()
     {
         controls.gameObject.SetActive(true);
@@ -131,5 +184,10 @@ public class Overlay : MonoBehaviour
     private void OnDoneButtonClick()
     {
         controls.gameObject.SetActive(false);
+    }
+
+    private void AccusePopup_OnAccuseSuspect(SuspectScriptableObject suspect)
+    {
+        OnAccuseSuspect?.Invoke(suspect);
     }
 }

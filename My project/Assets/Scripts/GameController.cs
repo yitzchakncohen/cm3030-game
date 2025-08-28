@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private UIController uIController;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Dossier dossier;
+    [SerializeField] private Overlay overlay;
 
     List<ClueScriptableObject> cluesToFind;
 
@@ -26,6 +27,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject player;
 
     private int totalClues;
+    private float startTime;
     [SerializeField] private int maxScore;
     [SerializeField] private int optimalTime;
 
@@ -79,6 +81,13 @@ public class GameController : MonoBehaviour
         dossier.OnAccuseSuspect += Dossier_OnAccuseSuspect;
         dossier.OnOpen += Dossier_OnOpen;
         dossier.OnClose += Dossier_OnClose;
+        overlay.OnAccuseSuspect += Overlay_OnAccuseSuspect;
+    }
+
+    private void Update()
+    {
+        string time = "Time: " + Math.Floor(Time.timeSinceLevelLoad - startTime).ToString("#.##");
+        overlay.UpdateTime(time);
     }
 
     private void OnDestroy()
@@ -86,6 +95,7 @@ public class GameController : MonoBehaviour
         dossier.OnAccuseSuspect -= Dossier_OnAccuseSuspect;
         dossier.OnOpen -= Dossier_OnOpen;
         dossier.OnClose -= Dossier_OnClose;
+        overlay.OnAccuseSuspect -= Overlay_OnAccuseSuspect;
     }
 
     // Update is called once per frame
@@ -120,7 +130,7 @@ public class GameController : MonoBehaviour
 
         results.Add("The killer was " + murderer.suspectName);
         results.Add($"You got {foundClues.Count()} out of {totalClues} clues.");
-        double secondsTaken = Math.Floor(Time.timeSinceLevelLoad);
+        double secondsTaken = Math.Floor(Time.timeSinceLevelLoad - startTime);
         results.Add($"It took you {secondsTaken} seconds.");
         double score;
         if (input == murderer.suspectName)
@@ -198,7 +208,7 @@ public class GameController : MonoBehaviour
 
     private void Dossier_OnAccuseSuspect(SuspectScriptableObject suspect)
     {
-        OnAccuseSuspect?.Invoke(suspect);
+        overlay.ShowAccusePopup(suspect);
     }
 
     private void Dossier_OnOpen()
@@ -209,6 +219,13 @@ public class GameController : MonoBehaviour
     private void Dossier_OnClose()
     {
         characterController.ToggleLook(true);
+        overlay.HideAccusePopup();
+    }
+
+    private void Overlay_OnAccuseSuspect(SuspectScriptableObject suspect)
+    {
+        overlay.HideAccusePopup();
+        OnAccuseSuspect?.Invoke(suspect);
     }
 
     public void RestartGame()
@@ -220,11 +237,20 @@ public class GameController : MonoBehaviour
     {
         Application.Quit();
     }
-    private double CalculateScore(double secondsTaken,int cluesFound,int totalClues)
+
+    public void StartGame()
+    {
+        startTime = Time.timeSinceLevelLoad;
+        uIController.GameStarted();
+        overlay.ShowDossier();
+        overlay.ShowTimer();
+    }
+
+    private double CalculateScore(double secondsTaken, int cluesFound, int totalClues)
     {
         double cluesPenalty = (totalClues - cluesFound) * 50;
-        double timeTakenAboveOptimal = Math.Max(secondsTaken - optimalTime,0);
-        double score = maxScore - (timeTakenAboveOptimal*2) - cluesPenalty;
+        double timeTakenAboveOptimal = Math.Max(secondsTaken - optimalTime, 0);
+        double score = maxScore - (timeTakenAboveOptimal * 2) - cluesPenalty;
         return score;
     }
 

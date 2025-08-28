@@ -15,7 +15,7 @@ public abstract class Movable : MonoBehaviour
     protected virtual void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        defaultMaterial = mesh.GetComponentInChildren<MeshRenderer>().material;
+        defaultMaterial = mesh.GetComponentInChildren<Renderer>().material;
     }
 
     public void Target()

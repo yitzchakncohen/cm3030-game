@@ -47,7 +47,6 @@ public class CharacterController : MonoBehaviour
         inputManager.OnCrouchButtonUp += InputManager_OnCrouchButtonUp;
         inputManager.OnJumpInput += InputManager_OnJumpInput;
         inputManager.OnGrabInputDown += InputManager_OnGrabInputDown;
-        inputManager.OnGrabInputUp += InputManager_OnGrabInputUp;
     }
 
     private void OnDisable()
@@ -58,7 +57,6 @@ public class CharacterController : MonoBehaviour
         inputManager.OnCrouchButtonUp -= InputManager_OnCrouchButtonUp;
         inputManager.OnJumpInput -= InputManager_OnJumpInput;
         inputManager.OnGrabInputDown -= InputManager_OnGrabInputDown;
-        inputManager.OnGrabInputUp -= InputManager_OnGrabInputUp;
     }
 
     private void FixedUpdate()
@@ -183,18 +181,16 @@ public class CharacterController : MonoBehaviour
 
     private void InputManager_OnGrabInputDown()
     {
-        if (targetMovable == null)
-            return;
-        grabbedPickup = targetMovable;
-        grabbedPickup.Grab(hand.transform);
-    }
-
-    private void InputManager_OnGrabInputUp()
-    {
-        if (grabbedPickup == null)
-            return;
-        grabbedPickup.Reset();
-        grabbedPickup = null;
+        if (targetMovable != null && grabbedPickup == null)
+        {
+            grabbedPickup = targetMovable;
+            grabbedPickup.Grab(hand.transform);
+        }
+        else if (grabbedPickup != null)
+        {
+            grabbedPickup.Reset();
+            grabbedPickup = null;
+        }
     }
 
     public void ToggleLook(bool enabled)
