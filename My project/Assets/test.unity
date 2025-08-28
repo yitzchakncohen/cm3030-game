@@ -637,7 +637,12 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6500000, guid: 0d3842becf02b2540b6b0aaaca19366b, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5400000, guid: 0d3842becf02b2540b6b0aaaca19366b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1063,7 +1068,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 6}
+  m_Size: {x: 2, y: 5, z: 6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &267596502 stripped
 Transform:
@@ -2642,7 +2647,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 6}
+  m_Size: {x: 2, y: 5, z: 6}
   m_Center: {x: -0.00000011920929, y: -1.4210852e-14, z: 7.10543e-15}
 --- !u!4 &717211326 stripped
 Transform:
@@ -6745,7 +6750,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 6}
+  m_Size: {x: 2, y: 5, z: 6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1488319696 stripped
 Transform:
@@ -9038,7 +9043,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 6}
+  m_Size: {x: 2, y: 5, z: 6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1840680364 stripped
 Transform:
