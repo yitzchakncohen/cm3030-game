@@ -72,3 +72,7 @@ Exterior Asset prefabs
 Poly Haven
 	Floor Tiles 06 - Rob Tuytel [https://polyhaven.com/a/floor_tiles_06]
 	Plastered Wall 04 - Rob Tuytel [https://polyhaven.com/a/plastered_wall_04]
+
+Citations
+	Scriptable Objects change thier values during run time and these persist - Unity Engine [WWW Document], 2024. . Unity Discussions. URL https://discussions.unity.com/t/scriptable-objects-change-thier-values-during-run-time-and-these-persist/1507422 (accessed 8.28.25)
+	Singh, A., 2012. Answer to “How can I find a specific element in a List<T>?” Stack Overflow. URL https://stackoverflow.com/a/9854954 (accessed 8.28.25)

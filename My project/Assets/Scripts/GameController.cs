@@ -93,7 +93,7 @@ public class GameController : MonoBehaviour
     {
         Debug.ClearDeveloperConsole();
 
-        // Adapted from a StackOverflow answer from Amritpal Singh in 2012 and edited by Peter Mortensen in 2016
+        // Adapted from a StackOverflow answer from Amritpal Singh in 2012 and edited by Peter Mortensen in 2016: (Singh, 2012).
         // https://stackoverflow.com/a/9854954
         ClueScriptableObject scannedClue = cluesToFind.Find(item => item.clueName == clue.gameObject.transform.parent.name);
 
@@ -145,6 +145,7 @@ public class GameController : MonoBehaviour
     {
         int x = UnityEngine.Random.Range(0, activeSuspects.Count());
         SuspectScriptableObject suspect = Instantiate(activeSuspects[x]);
+        // Adapted from an answer from Spiney199, 2024.
         // (“Scriptable Objects change thier values during run time and these persist - Unity Engine,” 2024. https://discussions.unity.com/t/scriptable-objects-change-thier-values-during-run-time-and-these-persist/1507422) 
         //remove them from the list so we can pick clues from other suspects
         activeSuspects.RemoveAt(x);
