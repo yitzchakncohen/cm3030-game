@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class Overlay : MonoBehaviour
     [SerializeField] private Image scanProgressBar;
     [SerializeField] private GameObject dossierPip;
     [SerializeField] private AccusePopup accusePopup;
+    [SerializeField] private GameObject timer;
+    [SerializeField] private TMP_Text timeText;
 
     private void Start()
     {
@@ -103,6 +106,21 @@ public class Overlay : MonoBehaviour
     public void HideDossierPip()
     {
         dossierPip.SetActive(false);
+    }
+
+    public void ShowTimer()
+    {
+        timer.SetActive(true);
+    }
+
+    public void HideTimer()
+    {
+        timer.SetActive(false);
+    }
+
+    public void UpdateTime(string timer)
+    {
+        timeText.text = timer;
     }
 
     public void ShowScanClue(Transform target)

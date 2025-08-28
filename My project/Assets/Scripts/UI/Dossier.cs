@@ -20,6 +20,7 @@ public class Dossier : MonoBehaviour
     [SerializeField] private ClueCell cluePrefab;
     [SerializeField] private SuspectCell suspectCell;
     [SerializeField] private TMP_Text pageNumber;
+    [SerializeField] private TMP_Text clueCounter;
     private List<SuspectScriptableObject> suspects;
     private int currentSuspect = 0;
 
@@ -53,6 +54,7 @@ public class Dossier : MonoBehaviour
         ClueCell clueCell = Instantiate(cluePrefab, clueHolder);
         clueCell.Init(clue);
         overlay.ShowDossierPip();
+        clueCounter.text = $"{clueHolder.childCount}/6 Clues Found";
     }
 
     private void OnNextSuspectClick()

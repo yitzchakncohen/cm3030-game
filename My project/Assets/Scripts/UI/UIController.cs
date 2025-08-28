@@ -1,13 +1,12 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] private ClueScanner clueScanner;
     [SerializeField] private Dossier dossier;
+    [SerializeField] private Overlay overlay;
 
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject gameControllerObject;
@@ -17,7 +16,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject eventSystem;
     [SerializeField] private GameObject endGameMenu;
 
-    private List<String> results;
+    private List<string> results;
 
     private void Start()
     {
@@ -63,6 +62,8 @@ public class UIController : MonoBehaviour
             Debug.Log(results[i]);
         }
         endGameMenu.SetActive(true);
+        overlay.HideTimer();
+        overlay.HideDossier();
 
         endGameMenu.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = results[0];
         endGameMenu.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = results[1];
