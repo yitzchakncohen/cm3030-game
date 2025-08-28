@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 public class Zone : MonoBehaviour
 {
@@ -44,21 +46,12 @@ public class Zone : MonoBehaviour
     /// </returns>
     public Vector3 getSpawnPoint()
     {
-        if (spawnPoints.Count != 0)
-        {
-            int i = Random.Range(0, spawnPoints.Count);
-            return spawnPoints[i];
-        }
-        float minX = transform.position.x - transform.lossyScale.x / 2;
-        float maxX = transform.position.x + transform.lossyScale.x / 2;
+        int i = UnityEngine.Random.Range(0, gameObject.transform.childCount);
+        Transform transform = gameObject.transform.GetChild(i);
 
-        float minZ = transform.position.z - transform.lossyScale.z / 2;
-        float maxZ = transform.position.z + transform.lossyScale.z / 2;
+        
 
-        float x = Random.Range(minX, maxX);
-        float z = Random.Range(minZ, maxZ);
-
-        return new Vector3(x, 0f, z);
+        return new Vector3(transform.position.x, 0f, transform.position.z);
     }
     
 }
