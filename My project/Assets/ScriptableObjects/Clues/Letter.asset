@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueName: Letter
   model: {fileID: 3159367751106705862, guid: 5920790332b0b6743967068530a8c0af, type: 3}
-  description: A letter. Nothing suspicious about the contents, but why is it here?
-  defaultSpawnPoints: []
+  description: Nothing suspicious about the contents, but why is it here?
+  validSpawnZones: []

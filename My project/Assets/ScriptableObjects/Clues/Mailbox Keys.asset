@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueName: Keys
   model: {fileID: 7173815278906741782, guid: 85ccad496c641c4469d02d4e35274655, type: 3}
-  description: A set of keys. The edges have been worn down by use.
+  description: The edges have been worn down by use.
   validSpawnZones: []

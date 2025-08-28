@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueName: Letter bag
   model: {fileID: 3159367751106705862, guid: 3b920870aab110b46a43e0ec07651328, type: 3}
-  description: A bag full of letters. Surprisingly heavy.
-  defaultSpawnPoints: []
+  description: Surprisingly heavy.
+  validSpawnZones: []

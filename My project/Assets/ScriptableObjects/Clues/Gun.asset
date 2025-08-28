@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueName: Gun
   model: {fileID: 7173815278906741782, guid: e7461e3cb4dfd384ea54841be167ca84, type: 3}
-  description: A well-cared for pistol. The safety's off.
+  description: The safety's off.
   validSpawnZones: []

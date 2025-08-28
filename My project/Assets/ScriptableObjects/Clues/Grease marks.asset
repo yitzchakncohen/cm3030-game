@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueName: Grease marks
   model: {fileID: 7644527253899290678, guid: 0e4f0dfc1b3d92c4894967e1b0d81249, type: 3}
-  description: A trail of grease. Was someone carrying an oil can?
+  description: Was someone carrying an oil can?
   validSpawnZones:
   - Bar
   - BarRear
